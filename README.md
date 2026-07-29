@@ -5,7 +5,7 @@ Claude Code.
 
 Plugin-backed skills live once inside their plugin. Compatibility symlinks under
 `skills/` preserve standalone installation for older clients, while marketplace
-installs provide the skill, MCP tools, and hooks as one versioned unit.
+installs provide the skill suite, MCP tools, and hooks as one versioned unit.
 
 Public repository: [github.com/l0cka/agent-skills](https://github.com/l0cka/agent-skills)
 
@@ -19,12 +19,19 @@ agent-skills/
 │   └── project-knowledge-graph/
 │       ├── .codex-plugin/plugin.json
 │       ├── .claude-plugin/plugin.json
-│       ├── skills/project-knowledge-graph/
+│       ├── skills/
+│       │   ├── setup-project-graph/
+│       │   ├── model-project-graph/
+│       │   ├── ingest-project-graph/
+│       │   ├── query-project-graph/
+│       │   ├── analyze-project-graph/
+│       │   ├── validate-project-graph/
+│       │   ├── refine-project-graph/
+│       │   └── publish-project-graph/
 │       ├── hooks/
 │       ├── .mcp.json
 │       └── mcp/
-├── skills/
-│   └── project-knowledge-graph -> ../plugins/...
+├── skills/                  # compatibility symlinks
 ├── scripts/
 │   ├── sync_skills.py
 │   └── validate_skills.py
@@ -53,7 +60,7 @@ claude plugin marketplace add l0cka/agent-skills
 claude plugin install project-knowledge-graph@l0cka-agent-skills --scope user
 ```
 
-The plugin supplies the skill, a read-only local MCP server, and a bounded
+The plugin supplies eight focused skills, a read-only local MCP server, and a bounded
 `SessionStart` graph brief. Project `kg/` files remain the canonical memory;
 native Codex and Claude memories remain supplementary recall layers.
 

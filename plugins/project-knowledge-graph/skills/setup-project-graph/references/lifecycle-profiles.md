@@ -92,3 +92,11 @@ An observation requires:
 - no secret, credential, wallet, or private-key material.
 
 Prefer regenerable, ignored observation files. Never let a stale observation satisfy a durable lifecycle gate.
+
+## Basis
+
+These profiles are project-governance extensions to the general lifecycle in
+Aidan Hogan et al., *Knowledge Graphs* (Morgan & Claypool, 2021): incremental
+creation and enrichment, quality assessment, refinement, and publication. They
+are optional local shapes, not claims that the textbook defines these project
+domains.

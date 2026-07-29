@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publish Project Graph"
+  short_description: "Export and publish graphs with usage controls"
+  default_prompt: "Use $publish-project-graph to prepare a safe, reusable graph export for the intended audience."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ingest Project Sources"
+  short_description: "Extract and refresh source-backed assertions"
+  default_prompt: "Use $ingest-project-graph to ingest these sources into the project graph with provenance."

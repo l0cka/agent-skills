@@ -1,0 +1,4 @@
+interface:
+  display_name: "Refine Project Graph"
+  short_description: "Review completion and correction candidates"
+  default_prompt: "Use $refine-project-graph to propose and safely apply evidence-backed graph refinements."

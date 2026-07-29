@@ -11,8 +11,8 @@
     {
       "name": "project-knowledge-graph",
       "source": "./plugins/project-knowledge-graph",
-      "description": "Governed project memory with provenance-backed graph queries.",
-      "version": "0.1.4",
+      "description": "Eight governed workflows for provenance-backed project knowledge graphs.",
+      "version": "0.2.0",
       "category": "Productivity",
       "tags": [
         "knowledge-graph",

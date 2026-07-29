@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analyze Project Graph"
+  short_description: "Analyze topology, entailments, and candidates"
+  default_prompt: "Use $analyze-project-graph to identify structural insights and clearly separate facts from candidates."

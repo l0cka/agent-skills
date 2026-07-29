@@ -1,7 +1,7 @@
 {
   "name": "project-knowledge-graph",
-  "version": "0.1.4",
-  "description": "Build and query governed, provenance-backed project knowledge graphs.",
+  "version": "0.2.0",
+  "description": "Create, model, ingest, query, analyze, validate, refine, and publish governed project knowledge graphs.",
   "author": {
     "name": "l0cka",
     "email": "13148507+l0cka@users.noreply.github.com",

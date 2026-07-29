@@ -21,7 +21,7 @@ from lib.kg_bridge import (  # noqa: E402
 
 
 SERVER_NAME = "project-knowledge-graph"
-SERVER_VERSION = "0.1.4"
+SERVER_VERSION = "0.2.0"
 INSTRUCTIONS = (
     "Use kg_overview or kg_health before relying on graph assertions. "
     "Use kg_context before citing relationships because it returns exact provenance. "

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Setup Project Graph"
+  short_description: "Initialize a governed project knowledge graph"
+  default_prompt: "Use $setup-project-graph to design and initialize a governed graph for this project."

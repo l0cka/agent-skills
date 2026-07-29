@@ -2,16 +2,100 @@
   "registry_version": 1,
   "skills": [
     {
-      "name": "project-knowledge-graph",
-      "version": "2.1.0",
-      "path": "skills/project-knowledge-graph",
+      "name": "setup-project-graph",
+      "version": "1.0.0",
+      "path": "skills/setup-project-graph",
       "plugin": "plugins/project-knowledge-graph",
-      "plugin_version": "0.1.4",
+      "plugin_version": "0.2.0",
       "targets": [
         "codex",
         "claude-code"
       ],
-      "source": "User-created with Fable in Claude; governance revisions incorporated in this repository."
+      "source": "Derived from Hogan et al., Knowledge Graphs (2021), with project-governance controls."
+    },
+    {
+      "name": "model-project-graph",
+      "version": "1.0.0",
+      "path": "skills/model-project-graph",
+      "plugin": "plugins/project-knowledge-graph",
+      "plugin_version": "0.2.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Derived from Hogan et al., Knowledge Graphs (2021), Chapters 2-5."
+    },
+    {
+      "name": "ingest-project-graph",
+      "version": "1.0.0",
+      "path": "skills/ingest-project-graph",
+      "plugin": "plugins/project-knowledge-graph",
+      "plugin_version": "0.2.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Derived from Hogan et al., Knowledge Graphs (2021), Chapter 6."
+    },
+    {
+      "name": "query-project-graph",
+      "version": "1.0.0",
+      "path": "skills/query-project-graph",
+      "plugin": "plugins/project-knowledge-graph",
+      "plugin_version": "0.2.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Derived from Hogan et al., Knowledge Graphs (2021), Chapter 2."
+    },
+    {
+      "name": "analyze-project-graph",
+      "version": "1.0.0",
+      "path": "skills/analyze-project-graph",
+      "plugin": "plugins/project-knowledge-graph",
+      "plugin_version": "0.2.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Derived from Hogan et al., Knowledge Graphs (2021), Chapters 4-5."
+    },
+    {
+      "name": "validate-project-graph",
+      "version": "1.0.0",
+      "path": "skills/validate-project-graph",
+      "plugin": "plugins/project-knowledge-graph",
+      "plugin_version": "0.2.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Derived from Hogan et al., Knowledge Graphs (2021), Chapter 7."
+    },
+    {
+      "name": "refine-project-graph",
+      "version": "1.0.0",
+      "path": "skills/refine-project-graph",
+      "plugin": "plugins/project-knowledge-graph",
+      "plugin_version": "0.2.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Derived from Hogan et al., Knowledge Graphs (2021), Chapter 8."
+    },
+    {
+      "name": "publish-project-graph",
+      "version": "1.0.0",
+      "path": "skills/publish-project-graph",
+      "plugin": "plugins/project-knowledge-graph",
+      "plugin_version": "0.2.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Derived from Hogan et al., Knowledge Graphs (2021), Chapter 9."
     }
   ]
 }

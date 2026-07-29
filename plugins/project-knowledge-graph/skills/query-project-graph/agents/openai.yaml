@@ -1,0 +1,4 @@
+interface:
+  display_name: "Query Project Graph"
+  short_description: "Retrieve bounded graph answers with evidence"
+  default_prompt: "Use $query-project-graph to answer this question from the project graph with exact provenance."

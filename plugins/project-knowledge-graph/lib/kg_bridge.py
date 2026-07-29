@@ -16,7 +16,7 @@ PLUGIN_ROOT = Path(__file__).resolve().parents[1]
 KG_CLI = (
     PLUGIN_ROOT
     / "skills"
-    / "project-knowledge-graph"
+    / "setup-project-graph"
     / "scripts"
     / "kg.py"
 )
@@ -246,9 +246,13 @@ def build_session_brief(root: Path) -> str:
     lines.extend(
         [
             (
-                "Use the `project-knowledge-graph` MCP tools for bounded retrieval. "
-                "Call `kg_context` before citing a relationship so the exact assertion "
-                "source is present."
+                "Use `$query-project-graph` with the read-only MCP tools for bounded "
+                "retrieval. Call `kg_context` before citing a relationship so the exact "
+                "assertion source is present."
+            ),
+            (
+                "Route durable changes through the setup, model, ingest, or refine "
+                "graph skills, then finish with `$validate-project-graph`."
             ),
             (
                 "The graph is open-world: missing assertions are unknown, not false. "

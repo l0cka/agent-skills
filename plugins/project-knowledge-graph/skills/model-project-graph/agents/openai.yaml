@@ -1,0 +1,4 @@
+interface:
+  display_name: "Model Project Graph"
+  short_description: "Design graph schema, identity, and context"
+  default_prompt: "Use $model-project-graph to design the schema, identities, and provenance model for this graph."

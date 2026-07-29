@@ -17,7 +17,7 @@ PLUGIN_ROOT = Path(__file__).resolve().parents[1]
 KG_CLI = (
     PLUGIN_ROOT
     / "skills"
-    / "project-knowledge-graph"
+    / "setup-project-graph"
     / "scripts"
     / "kg.py"
 )
@@ -25,6 +25,16 @@ MCP_SERVER = PLUGIN_ROOT / "mcp" / "kg_mcp.py"
 MCP_CONFIG = PLUGIN_ROOT / ".mcp.json"
 SESSION_HOOK = PLUGIN_ROOT / "hooks" / "session_start.py"
 GRAPH_FILES = ("nodes.jsonl", "edges.jsonl", "schema.json", "manifest.json")
+EXPECTED_SKILLS = {
+    "setup-project-graph",
+    "model-project-graph",
+    "ingest-project-graph",
+    "query-project-graph",
+    "analyze-project-graph",
+    "validate-project-graph",
+    "refine-project-graph",
+    "publish-project-graph",
+}
 
 
 class PluginIntegrationTests(unittest.TestCase):
@@ -89,6 +99,17 @@ class PluginIntegrationTests(unittest.TestCase):
         for name in GRAPH_FILES:
             digest.update((self.root / "kg" / name).read_bytes())
         return digest.hexdigest()
+
+    def test_plugin_exposes_focused_skill_suite(self):
+        skill_root = PLUGIN_ROOT / "skills"
+        actual = {
+            path.name
+            for path in skill_root.iterdir()
+            if path.is_dir() and (path / "SKILL.md").is_file()
+        }
+        self.assertEqual(actual, EXPECTED_SKILLS)
+        self.assertNotIn("project-knowledge-graph", actual)
+        self.assertTrue(KG_CLI.is_file())
 
     def run_mcp(self, messages):
         payload = "".join(

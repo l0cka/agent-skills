@@ -1,0 +1,4 @@
+interface:
+  display_name: "Validate Project Graph"
+  short_description: "Assess graph quality and fitness for purpose"
+  default_prompt: "Use $validate-project-graph to audit this graph for integrity, freshness, coverage, and usability."

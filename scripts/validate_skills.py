@@ -70,16 +70,21 @@ def load_object(path):
 
 def validate_plugins(registry):
     errors = []
-    plugin_entries = {
-        entry.get("plugin"): entry
-        for entry in registry.get("skills", [])
-        if entry.get("plugin")
-    }
-    for relative, entry in sorted(plugin_entries.items()):
+    plugin_entries = {}
+    for entry in registry.get("skills", []):
+        relative = entry.get("plugin")
+        if relative:
+            plugin_entries.setdefault(relative, []).append(entry)
+
+    for relative, entries in sorted(plugin_entries.items()):
         plugin = ROOT / relative
         name = plugin.name
         if not plugin.is_dir():
             errors.append(f"{relative}: plugin directory is missing")
+            continue
+        skill_root = plugin / "skills"
+        if not skill_root.is_dir():
+            errors.append(f"{relative}: skills/ is missing")
             continue
         manifests = [
             plugin / ".codex-plugin" / "plugin.json",
@@ -102,23 +107,78 @@ def validate_plugins(registry):
                 )
             else:
                 versions.add(version)
-            skill_root = plugin / "skills"
-            if not skill_root.is_dir():
-                errors.append(f"{relative}: skills/ is missing")
-        expected_version = entry.get("plugin_version")
+        expected_versions = {entry.get("plugin_version") for entry in entries}
+        if len(expected_versions) != 1:
+            errors.append(
+                f"{relative}: registry entries disagree on plugin_version "
+                f"{sorted(str(value) for value in expected_versions)}"
+            )
+        expected_version = next(iter(expected_versions), None)
         if versions != {expected_version}:
             errors.append(
                 f"{relative}: manifest versions {sorted(versions)} do not match "
                 f"skills.json plugin_version {expected_version!r}"
             )
-        compatibility = ROOT / entry["path"]
-        canonical = plugin / "skills" / entry["name"]
-        if not compatibility.is_symlink():
-            errors.append(f"{entry['path']}: expected a compatibility symlink")
-        elif compatibility.resolve() != canonical.resolve():
+
+        codex_catalog, catalog_errors = load_object(
+            ROOT / ".agents" / "plugins" / "marketplace.json"
+        )
+        errors.extend(catalog_errors)
+        if codex_catalog is not None:
+            matches = [
+                item
+                for item in codex_catalog.get("plugins", [])
+                if item.get("name") == name
+            ]
+            expected_source = {"source": "local", "path": f"./{relative}"}
+            if len(matches) != 1 or matches[0].get("source") != expected_source:
+                errors.append(
+                    f".agents/plugins/marketplace.json: expected one {name!r} "
+                    f"entry sourced from {expected_source!r}"
+                )
+
+        claude_catalog, catalog_errors = load_object(
+            ROOT / ".claude-plugin" / "marketplace.json"
+        )
+        errors.extend(catalog_errors)
+        if claude_catalog is not None:
+            matches = [
+                item
+                for item in claude_catalog.get("plugins", [])
+                if item.get("name") == name
+            ]
+            if (
+                len(matches) != 1
+                or matches[0].get("source") != f"./{relative}"
+                or matches[0].get("version") != expected_version
+            ):
+                errors.append(
+                    f".claude-plugin/marketplace.json: expected one {name!r} "
+                    f"entry at version {expected_version!r} sourced from ./{relative}"
+                )
+
+        canonical_names = {
+            path.name
+            for path in skill_root.iterdir()
+            if path.is_dir() and (path / "SKILL.md").is_file()
+        }
+        registered_names = {entry["name"] for entry in entries}
+        if canonical_names != registered_names:
             errors.append(
-                f"{entry['path']}: compatibility symlink does not target {canonical.relative_to(ROOT)}"
+                f"{relative}: canonical skills {sorted(canonical_names)} do not match "
+                f"registry skills {sorted(registered_names)}"
             )
+
+        for entry in entries:
+            compatibility = ROOT / entry["path"]
+            canonical = plugin / "skills" / entry["name"]
+            if not compatibility.is_symlink():
+                errors.append(f"{entry['path']}: expected a compatibility symlink")
+            elif compatibility.resolve() != canonical.resolve():
+                errors.append(
+                    f"{entry['path']}: compatibility symlink does not target "
+                    f"{canonical.relative_to(ROOT)}"
+                )
 
         for test in sorted((plugin / "tests").glob("test_*.py")):
             result = subprocess.run(

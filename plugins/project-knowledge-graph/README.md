@@ -5,7 +5,15 @@ project memory.
 
 The plugin bundles:
 
-- the `project-knowledge-graph` skill for graph construction and maintenance;
+- eight focused skills spanning the graph lifecycle:
+  - `setup-project-graph`
+  - `model-project-graph`
+  - `ingest-project-graph`
+  - `query-project-graph`
+  - `analyze-project-graph`
+  - `validate-project-graph`
+  - `refine-project-graph`
+  - `publish-project-graph`
 - six read-only MCP tools for bounded graph retrieval;
 - a `SessionStart` hook that injects a compact, freshness-aware graph brief;
 - the dependency-free `kg.py` JSONL graph engine.
@@ -26,6 +34,15 @@ remote service, or provide MCP mutation tools.
 Every result includes the graph hash and bounded output. Node and matching edge
 provenance are included where applicable. Use `kg_context` before citing a
 relationship.
+
+## Conceptual basis
+
+The skill suite is a task-oriented synthesis of Aidan Hogan et al.,
+*Knowledge Graphs* (Morgan & Claypool, 2021). It follows the book's progression
+from graph models, schema, identity, context, and reasoning through creation,
+quality assessment, refinement, and publication. The bundled references are
+original paraphrases adapted to governed project memory; the textbook itself is
+not redistributed.
 
 ## Development verification
 
