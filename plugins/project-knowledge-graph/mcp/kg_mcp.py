@@ -21,7 +21,15 @@ from lib.kg_bridge import (  # noqa: E402
 
 
 SERVER_NAME = "project-knowledge-graph"
-SERVER_VERSION = "0.2.0"
+SERVER_VERSION = "0.3.0"
+MODERN_PROTOCOL_VERSION = "2026-07-28"
+LEGACY_PROTOCOL_VERSIONS = (
+    "2025-11-25",
+    "2025-06-18",
+    "2025-03-26",
+)
+SUPPORTED_PROTOCOL_VERSIONS = (MODERN_PROTOCOL_VERSION, *LEGACY_PROTOCOL_VERSIONS)
+CACHE_TTL_MS = 3_600_000
 INSTRUCTIONS = (
     "Use kg_overview or kg_health before relying on graph assertions. "
     "Use kg_context before citing relationships because it returns exact provenance. "
@@ -180,6 +188,73 @@ def _text_result(value: dict[str, Any], is_error=False):
     }
 
 
+class ProtocolError(Exception):
+    def __init__(self, code: int, message: str, data: dict[str, Any] | None = None):
+        super().__init__(message)
+        self.code = code
+        self.data = data
+
+
+def _server_meta():
+    return {
+        "io.modelcontextprotocol/serverInfo": {
+            "name": SERVER_NAME,
+            "version": SERVER_VERSION,
+        }
+    }
+
+
+def _complete_result(
+    result: dict[str, Any],
+    *,
+    cache_scope: str | None = None,
+):
+    modern = dict(result)
+    modern["resultType"] = "complete"
+    meta = dict(modern.get("_meta") or {})
+    meta.update(_server_meta())
+    modern["_meta"] = meta
+    if cache_scope is not None:
+        modern["ttlMs"] = CACHE_TTL_MS
+        modern["cacheScope"] = cache_scope
+    return modern
+
+
+def _request_protocol_version(message: dict[str, Any]):
+    params = message.get("params")
+    if not isinstance(params, dict):
+        return None
+    meta = params.get("_meta")
+    if not isinstance(meta, dict):
+        return None
+    return meta.get("io.modelcontextprotocol/protocolVersion")
+
+
+def _validate_modern_request(message: dict[str, Any]):
+    params = message.get("params")
+    if not isinstance(params, dict):
+        raise ProtocolError(-32602, "Modern MCP requests require object params")
+    meta = params.get("_meta")
+    if not isinstance(meta, dict):
+        raise ProtocolError(-32602, "Modern MCP requests require params._meta")
+    requested = meta.get("io.modelcontextprotocol/protocolVersion")
+    if requested != MODERN_PROTOCOL_VERSION:
+        raise ProtocolError(
+            -32022,
+            "Unsupported protocol version",
+            {
+                "supported": list(SUPPORTED_PROTOCOL_VERSIONS),
+                "requested": requested,
+            },
+        )
+    capabilities = meta.get("io.modelcontextprotocol/clientCapabilities")
+    if not isinstance(capabilities, dict):
+        raise ProtocolError(
+            -32602,
+            "Modern MCP requests require client capabilities in params._meta",
+        )
+
+
 def _bool(value: Any, default=False) -> bool:
     return value if isinstance(value, bool) else default
 
@@ -283,56 +358,94 @@ def send(message: dict[str, Any]):
     sys.stdout.flush()
 
 
-def handle(message: dict[str, Any]):
+def handle(message: dict[str, Any], state: dict[str, bool]):
     method = message.get("method")
     request_id = message.get("id")
     if method == "initialize":
-        requested = (message.get("params") or {}).get("protocolVersion")
+        params = message.get("params") or {}
+        if not isinstance(params, dict):
+            raise ProtocolError(-32602, "initialize params must be an object")
+        requested = params.get("protocolVersion")
+        negotiated = (
+            requested
+            if requested in LEGACY_PROTOCOL_VERSIONS
+            else LEGACY_PROTOCOL_VERSIONS[0]
+        )
+        state["legacy_initialized"] = True
         return {
-            "protocolVersion": requested or "2025-06-18",
+            "protocolVersion": negotiated,
             "capabilities": {"tools": {}},
             "serverInfo": {"name": SERVER_NAME, "version": SERVER_VERSION},
             "instructions": INSTRUCTIONS,
         }
-    if method == "ping":
+
+    requested = _request_protocol_version(message)
+    modern = requested is not None
+    if modern:
+        _validate_modern_request(message)
+    elif not state["legacy_initialized"]:
+        raise ProtocolError(
+            -32602,
+            "Call server/discover with modern request metadata or initialize a legacy session",
+        )
+
+    if method == "server/discover":
+        if not modern:
+            raise ProtocolError(-32602, "server/discover requires modern request metadata")
+        return _complete_result(
+            {
+                "supportedVersions": list(SUPPORTED_PROTOCOL_VERSIONS),
+                "capabilities": {"tools": {}},
+                "instructions": INSTRUCTIONS,
+            },
+            cache_scope="public",
+        )
+    if method == "ping" and not modern:
         return {}
     if method == "tools/list":
-        return {"tools": TOOLS}
+        result = {"tools": TOOLS}
+        return _complete_result(result, cache_scope="public") if modern else result
     if method == "tools/call":
         params = message.get("params") or {}
         name = params.get("name")
         arguments = params.get("arguments") or {}
         if not isinstance(name, str) or not isinstance(arguments, dict):
             raise GraphBridgeError("tools/call requires a tool name and object arguments")
-        return _text_result(call_tool(name, arguments))
+        result = _text_result(call_tool(name, arguments))
+        return _complete_result(result) if modern else result
     if method in ("notifications/initialized", "notifications/cancelled"):
         return None
     if request_id is None:
         return None
-    raise GraphBridgeError(f"Unsupported MCP method {method!r}")
+    raise ProtocolError(-32601, f"Unsupported MCP method {method!r}")
 
 
 def main():
+    state = {"legacy_initialized": False}
     for raw_line in sys.stdin:
         if not raw_line.strip():
             continue
         request_id = None
+        message = None
         try:
             message = json.loads(raw_line)
             if not isinstance(message, dict):
                 raise ValueError("message must be an object")
             request_id = message.get("id")
-            result = handle(message)
+            result = handle(message, state)
             if request_id is not None and result is not None:
                 send({"jsonrpc": "2.0", "id": request_id, "result": result})
         except GraphBridgeError as exc:
             if request_id is not None:
                 if isinstance(message, dict) and message.get("method") == "tools/call":
+                    result = _text_result({"ok": False, "error": str(exc)}, True)
+                    if _request_protocol_version(message) is not None:
+                        result = _complete_result(result)
                     send(
                         {
                             "jsonrpc": "2.0",
                             "id": request_id,
-                            "result": _text_result({"ok": False, "error": str(exc)}, True),
+                            "result": result,
                         }
                     )
                 else:
@@ -343,6 +456,12 @@ def main():
                             "error": {"code": -32602, "message": str(exc)},
                         }
                     )
+        except ProtocolError as exc:
+            if request_id is not None:
+                error: dict[str, Any] = {"code": exc.code, "message": str(exc)}
+                if exc.data is not None:
+                    error["data"] = exc.data
+                send({"jsonrpc": "2.0", "id": request_id, "error": error})
         except (json.JSONDecodeError, ValueError) as exc:
             send(
                 {

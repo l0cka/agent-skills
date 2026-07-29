@@ -1,6 +1,6 @@
 {
   "name": "project-knowledge-graph",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Create, model, ingest, query, analyze, validate, refine, and publish governed project knowledge graphs.",
   "author": {
     "name": "l0cka",

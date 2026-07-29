@@ -15,6 +15,8 @@ The plugin bundles:
   - `refine-project-graph`
   - `publish-project-graph`
 - six read-only MCP tools for bounded graph retrieval;
+- dual-era MCP support for handshake-based clients and the stateless
+  `2026-07-28` protocol;
 - a `SessionStart` hook that injects a compact, freshness-aware graph brief;
 - the dependency-free `kg.py` JSONL graph engine.
 
@@ -34,6 +36,10 @@ remote service, or provide MCP mutation tools.
 Every result includes the graph hash and bounded output. Node and matching edge
 provenance are included where applicable. Use `kg_context` before citing a
 relationship.
+
+The dependency-free stdio server supports both legacy `initialize` clients and
+modern per-request metadata. Modern clients can probe with `server/discover`;
+tool catalogs are deterministic and include public cache hints.
 
 ## Conceptual basis
 
