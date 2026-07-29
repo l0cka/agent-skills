@@ -1,0 +1,4 @@
+interface:
+  display_name: "Model Execution Risk"
+  short_description: "Estimate volatility and residual trade risk"
+  default_prompt: "Use $model-execution-risk to estimate timing and residual execution risk for this order."

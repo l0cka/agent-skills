@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analyze Transaction Costs"
+  short_description: "Measure and compare execution performance"
+  default_prompt: "Use $analyze-transaction-costs to decompose these fills and evaluate execution quality."

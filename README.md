@@ -34,7 +34,8 @@ agent-skills/
 │   └── quantitative-trading/
 │       ├── .codex-plugin/plugin.json
 │       ├── .claude-plugin/plugin.json
-│       ├── skills/quantitative-trading/
+│       ├── skills/              # router plus eight focused workflows
+│       ├── references/
 │       ├── scripts/
 │       └── tests/
 ├── skills/                  # compatibility symlinks
@@ -70,8 +71,10 @@ claude plugin install quantitative-trading@l0cka-agent-skills --scope user
 
 The knowledge-graph plugin supplies eight focused skills, a read-only local MCP
 server, and a bounded `SessionStart` graph brief. The quantitative-trading
-plugin supplies evidence-led strategy, execution, telemetry, and risk analysis
-with optional commit-pinned QuantEcon references.
+plugin supplies a governing router plus eight focused workflows for execution
+design, transaction costs, market impact, model validation, volume, execution
+risk, schedule optimization, and cost-aware portfolios. Its published-method
+provenance is explicit, and optional QuantEcon references remain commit-pinned.
 
 Update installed releases with:
 

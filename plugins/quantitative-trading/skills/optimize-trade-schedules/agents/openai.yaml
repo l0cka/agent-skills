@@ -1,0 +1,4 @@
+interface:
+  display_name: "Optimize Trade Schedules"
+  short_description: "Balance impact, urgency, and residual risk"
+  default_prompt: "Use $optimize-trade-schedules to construct and stress-test a constrained execution schedule."

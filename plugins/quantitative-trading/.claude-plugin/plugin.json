@@ -1,7 +1,7 @@
 {
   "name": "quantitative-trading",
-  "version": "0.3.2",
-  "description": "Evidence-led quantitative analysis for trading strategies, telemetry, backtests, execution quality, and risk.",
+  "version": "0.4.0",
+  "description": "Nine evidence-led workflows for trading research, execution, transaction costs, impact, risk, optimization, and portfolios.",
   "author": {
     "name": "l0cka",
     "url": "https://github.com/l0cka"
@@ -12,6 +12,9 @@
     "quantitative-trading",
     "market-making",
     "backtesting",
+    "transaction-cost-analysis",
+    "market-impact",
+    "optimization",
     "risk",
     "telemetry",
     "quantecon"

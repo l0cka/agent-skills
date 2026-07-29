@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Algorithmic Execution"
+  short_description: "Plan benchmark-aligned execution workflows"
+  default_prompt: "Use $design-algorithmic-execution to design a benchmark-aligned execution plan for this order."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Integrate Cost-Aware Portfolios"
+  short_description: "Add trading costs to portfolio decisions"
+  default_prompt: "Use $integrate-cost-aware-portfolios to evaluate this rebalance after transaction costs and liquidation risk."

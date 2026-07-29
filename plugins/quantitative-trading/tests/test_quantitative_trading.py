@@ -13,6 +13,16 @@ import unittest
 
 PLUGIN_ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = PLUGIN_ROOT / "scripts"
+FOCUSED_SKILLS = (
+    "design-algorithmic-execution",
+    "analyze-transaction-costs",
+    "model-market-impact",
+    "validate-trading-models",
+    "forecast-market-volume",
+    "model-execution-risk",
+    "optimize-trade-schedules",
+    "integrate-cost-aware-portfolios",
+)
 
 
 class QuantitativeTradingHelpersTest(unittest.TestCase):
@@ -114,6 +124,42 @@ class QuantitativeTradingHelpersTest(unittest.TestCase):
             check=False,
         )
         self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_focused_skill_suite_is_complete_and_attributed(self):
+        source_note = PLUGIN_ROOT / "references" / "method-provenance.md"
+        source_text = source_note.read_text(encoding="utf-8")
+        normalized_source = " ".join(source_text.split())
+        self.assertIn("Academic Press / Elsevier, 2021", normalized_source)
+        self.assertIn("does not bundle source text", normalized_source)
+
+        skill_root = PLUGIN_ROOT / "skills"
+        self.assertEqual(
+            {
+                path.name
+                for path in skill_root.iterdir()
+                if path.is_dir() and path.name != "quantitative-trading"
+            },
+            set(FOCUSED_SKILLS),
+        )
+        for name in FOCUSED_SKILLS:
+            skill = skill_root / name
+            skill_text = (skill / "SKILL.md").read_text(encoding="utf-8")
+            self.assertNotIn("[TODO", skill_text, name)
+            self.assertIn(
+                "../../references/method-provenance.md",
+                skill_text,
+                name,
+            )
+            self.assertTrue((skill / "agents" / "openai.yaml").is_file(), name)
+            self.assertTrue(any((skill / "references").glob("*.md")), name)
+
+    def test_plugin_does_not_redistribute_source_pdf(self):
+        bundled = [
+            path
+            for path in PLUGIN_ROOT.rglob("*")
+            if path.is_file() and path.suffix.casefold() == ".pdf"
+        ]
+        self.assertEqual(bundled, [])
 
     def test_public_metadata_excludes_private_identifiers(self):
         private_markers = (

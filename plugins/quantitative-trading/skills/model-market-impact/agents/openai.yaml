@@ -1,0 +1,4 @@
+interface:
+  display_name: "Model Market Impact"
+  short_description: "Calibrate and challenge impact models"
+  default_prompt: "Use $model-market-impact to specify and validate a market-impact model for these orders."

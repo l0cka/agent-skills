@@ -99,15 +99,111 @@
     },
     {
       "name": "quantitative-trading",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/quantitative-trading",
       "plugin": "plugins/quantitative-trading",
-      "plugin_version": "0.3.2",
+      "plugin_version": "0.4.0",
       "targets": [
         "codex",
         "claude-code"
       ],
-      "source": "Derived from a privately maintained quantitative-trading workflow; optional QuantEcon references are pinned to upstream commit dba5555ac22c4127d46bb9fcd209fc6f449d2662."
+      "source": "Original suite router informed by Algorithmic Trading Methods, second edition (Academic Press / Elsevier, 2021); optional QuantEcon references are pinned to upstream commit dba5555ac22c4127d46bb9fcd209fc6f449d2662."
+    },
+    {
+      "name": "design-algorithmic-execution",
+      "version": "1.0.0",
+      "path": "skills/design-algorithmic-execution",
+      "plugin": "plugins/quantitative-trading",
+      "plugin_version": "0.4.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Method scope informed by Algorithmic Trading Methods, second edition (Academic Press / Elsevier, 2021), Chapters 1, 2, and 13."
+    },
+    {
+      "name": "analyze-transaction-costs",
+      "version": "1.0.0",
+      "path": "skills/analyze-transaction-costs",
+      "plugin": "plugins/quantitative-trading",
+      "plugin_version": "0.4.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Method scope informed by Algorithmic Trading Methods, second edition (Academic Press / Elsevier, 2021), Chapters 3, 18, 20, and 21."
+    },
+    {
+      "name": "model-market-impact",
+      "version": "1.0.0",
+      "path": "skills/model-market-impact",
+      "plugin": "plugins/quantitative-trading",
+      "plugin_version": "0.4.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Method scope informed by Algorithmic Trading Methods, second edition (Academic Press / Elsevier, 2021), Chapters 4, 10, and 16."
+    },
+    {
+      "name": "validate-trading-models",
+      "version": "1.0.0",
+      "path": "skills/validate-trading-models",
+      "plugin": "plugins/quantitative-trading",
+      "plugin_version": "0.4.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Method scope informed by Algorithmic Trading Methods, second edition (Academic Press / Elsevier, 2021), Chapters 5 through 10, 16, and 19."
+    },
+    {
+      "name": "forecast-market-volume",
+      "version": "1.0.0",
+      "path": "skills/forecast-market-volume",
+      "plugin": "plugins/quantitative-trading",
+      "plugin_version": "0.4.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Method scope informed by Algorithmic Trading Methods, second edition (Academic Press / Elsevier, 2021), Chapters 2 and 12."
+    },
+    {
+      "name": "model-execution-risk",
+      "version": "1.0.0",
+      "path": "skills/model-execution-risk",
+      "plugin": "plugins/quantitative-trading",
+      "plugin_version": "0.4.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Method scope informed by Algorithmic Trading Methods, second edition (Academic Press / Elsevier, 2021), Chapters 11, 14, and 15."
+    },
+    {
+      "name": "optimize-trade-schedules",
+      "version": "1.0.0",
+      "path": "skills/optimize-trade-schedules",
+      "plugin": "plugins/quantitative-trading",
+      "plugin_version": "0.4.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Method scope informed by Algorithmic Trading Methods, second edition (Academic Press / Elsevier, 2021), Chapters 13 through 15 and 19."
+    },
+    {
+      "name": "integrate-cost-aware-portfolios",
+      "version": "1.0.0",
+      "path": "skills/integrate-cost-aware-portfolios",
+      "plugin": "plugins/quantitative-trading",
+      "plugin_version": "0.4.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Method scope informed by Algorithmic Trading Methods, second edition (Academic Press / Elsevier, 2021), Chapters 17 and 18."
     }
   ]
 }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Validate Trading Models"
+  short_description: "Test statistical and ML trading models"
+  default_prompt: "Use $validate-trading-models to audit this trading model for leakage, instability, and weak evidence."

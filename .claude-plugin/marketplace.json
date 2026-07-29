@@ -22,12 +22,14 @@
     {
       "name": "quantitative-trading",
       "source": "./plugins/quantitative-trading",
-      "description": "Evidence-led quantitative analysis for trading strategies, telemetry, backtests, execution quality, and risk.",
-      "version": "0.3.2",
+      "description": "Nine evidence-led workflows for trading research, execution, transaction costs, impact, risk, optimization, and portfolios.",
+      "version": "0.4.0",
       "category": "Productivity",
       "tags": [
         "quantitative-trading",
         "market-making",
+        "transaction-cost-analysis",
+        "optimization",
         "risk",
         "quantecon"
       ]

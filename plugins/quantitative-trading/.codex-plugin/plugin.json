@@ -1,7 +1,7 @@
 {
   "name": "quantitative-trading",
-  "version": "0.3.2",
-  "description": "Evidence-led quantitative analysis for trading strategies, telemetry, backtests, execution quality, and risk.",
+  "version": "0.4.0",
+  "description": "Nine evidence-led workflows for trading research, execution, transaction costs, impact, risk, optimization, and portfolios.",
   "author": {
     "name": "l0cka",
     "url": "https://github.com/l0cka"
@@ -12,6 +12,9 @@
     "quantitative-trading",
     "market-making",
     "backtesting",
+    "transaction-cost-analysis",
+    "market-impact",
+    "optimization",
     "risk",
     "telemetry",
     "quantecon"
@@ -19,8 +22,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Quantitative Trading",
-    "shortDescription": "Evidence-led strategy, execution, and risk analysis.",
-    "longDescription": "Analyze trading strategy health, edge, fills, exposure, drawdowns, latency, market selection, inventory, and parameter changes with reproducible evidence and explicit live-risk controls.",
+    "shortDescription": "Evidence-led execution, cost, and risk workflows.",
+    "longDescription": "Design and assess algorithmic execution with focused workflows for transaction costs, market impact, model validation, volume, risk, trade-schedule optimization, cost-aware portfolios, and trading telemetry.",
     "developerName": "l0cka",
     "category": "Productivity",
     "capabilities": [
@@ -28,9 +31,9 @@
     ],
     "websiteURL": "https://github.com/l0cka/agent-skills",
     "defaultPrompt": [
-      "Assess this strategy's edge and drawdown evidence.",
-      "Profile this trading telemetry and flag data traps.",
-      "Design a holdout-safe backtest and risk plan."
+      "Design a benchmark-aligned execution plan.",
+      "Decompose these fills into transaction costs.",
+      "Stress-test this schedule, impact, and risk model."
     ],
     "brandColor": "#0F766E"
   }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Forecast Market Volume"
+  short_description: "Forecast daily and intraday liquidity"
+  default_prompt: "Use $forecast-market-volume to build and validate a volume forecast for this execution horizon."
