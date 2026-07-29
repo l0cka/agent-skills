@@ -1,0 +1,15 @@
+{
+  "registry_version": 1,
+  "skills": [
+    {
+      "name": "project-knowledge-graph",
+      "version": "2.0.0",
+      "path": "skills/project-knowledge-graph",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "User-created with Fable in Claude; governance revisions incorporated in this repository."
+    }
+  ]
+}

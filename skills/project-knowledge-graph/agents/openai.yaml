@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Knowledge Graph"
+  short_description: "Govern provenance-backed project knowledge graphs"
+  default_prompt: "Use $project-knowledge-graph to build and validate a governed knowledge graph for this project."

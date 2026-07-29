@@ -1,0 +1,118 @@
+{
+  "schema_version": 2,
+  "project": "",
+  "conventions": "Research lifecycle profile: stable IDs, source-scoped assertions, mandatory provenance, terminal conclusions.",
+  "node_types": {
+    "Experiment": {
+      "description": "A bounded research test with a frozen success bar.",
+      "expected": {
+        "status": "required",
+        "opened": "recommended"
+      }
+    },
+    "Gate": {
+      "description": "A measurable criterion used to accept, promote, or reject an experiment."
+    },
+    "Decision": {
+      "description": "A dated terminal or promotion decision.",
+      "expected": {
+        "date": "recommended",
+        "status": "recommended"
+      }
+    },
+    "Lesson": {
+      "description": "A reusable conclusion supported by completed research."
+    },
+    "Strategy": {
+      "description": "A candidate, live, killed, or retired strategic approach.",
+      "expected": {
+        "status": "required"
+      }
+    }
+  },
+  "edge_types": {
+    "tested_by": {
+      "description": "Subject strategy or hypothesis is tested by object experiment.",
+      "range": [
+        "Experiment"
+      ]
+    },
+    "evaluated_by": {
+      "description": "Subject experiment or strategy is evaluated by object gate.",
+      "range": [
+        "Gate"
+      ]
+    },
+    "concluded_by": {
+      "description": "Subject experiment is concluded by object decision or lesson.",
+      "domain": [
+        "Experiment"
+      ],
+      "range": [
+        "Decision",
+        "Lesson"
+      ]
+    },
+    "killed_by": {
+      "description": "Subject strategy was terminated by object decision.",
+      "domain": [
+        "Strategy"
+      ],
+      "range": [
+        "Decision"
+      ]
+    },
+    "promoted_by": {
+      "description": "Subject strategy was promoted by object decision.",
+      "domain": [
+        "Strategy"
+      ],
+      "range": [
+        "Decision"
+      ]
+    },
+    "produced": {
+      "description": "Subject experiment or decision produced object lesson.",
+      "range": [
+        "Lesson"
+      ]
+    }
+  },
+  "shapes": [
+    {
+      "id": "closed-experiment-conclusion",
+      "target": {
+        "type": "Experiment",
+        "props.status": [
+          "closed",
+          "completed"
+        ]
+      },
+      "require_edges": [
+        {
+          "rel": "concluded_by",
+          "min": 1,
+          "source_policy": "canonical-fresh"
+        }
+      ]
+    },
+    {
+      "id": "terminal-strategy-decision",
+      "target": {
+        "type": "Strategy",
+        "props.status": [
+          "killed",
+          "retired"
+        ]
+      },
+      "require_edges": [
+        {
+          "rel": "killed_by",
+          "min": 1,
+          "source_policy": "canonical-fresh"
+        }
+      ]
+    }
+  ],
+  "competency_questions": []
+}

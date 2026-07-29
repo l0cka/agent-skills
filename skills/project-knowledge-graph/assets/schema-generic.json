@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "project": "",
+  "conventions": "Stable type:slug IDs; node and edge provenance required; source-scoped assertions; open-world facts; closed vocabulary.",
+  "node_types": {
+    "Person": {
+      "description": "A human involved in the project.",
+      "expected": {
+        "role": "recommended"
+      }
+    },
+    "Organization": {
+      "description": "A company, team, firm, or institution."
+    },
+    "Component": {
+      "description": "A module, service, subsystem, or named part of the system.",
+      "expected": {
+        "path": "recommended"
+      }
+    },
+    "File": {
+      "description": "A significant file, distinct from the thing it describes.",
+      "expected": {
+        "path": "required"
+      }
+    },
+    "Technology": {
+      "description": "An external tool, library, platform, or system."
+    },
+    "Concept": {
+      "description": "A named domain concept or recurring idea."
+    },
+    "Decision": {
+      "description": "A recorded decision with attachable rationale, actors, and dates.",
+      "expected": {
+        "date": "recommended",
+        "status": "recommended"
+      }
+    },
+    "Event": {
+      "description": "A meeting, milestone, release, or dated occurrence.",
+      "expected": {
+        "date": "recommended"
+      }
+    },
+    "Requirement": {
+      "description": "A stated requirement, constraint, or goal."
+    }
+  },
+  "edge_types": {
+    "depends_on": {
+      "description": "Subject requires object to function.",
+      "transitive": true,
+      "domain": [],
+      "range": []
+    },
+    "part_of": {
+      "description": "Subject is part or member of object.",
+      "transitive": true,
+      "inverse": "contains"
+    },
+    "uses": {
+      "description": "Subject makes use of object."
+    },
+    "implements": {
+      "description": "Subject realizes object."
+    },
+    "authored_by": {
+      "description": "Subject was created or written by object.",
+      "range": [
+        "Person",
+        "Organization"
+      ]
+    },
+    "involves": {
+      "description": "Subject event or decision involves object."
+    },
+    "decided_in": {
+      "description": "Subject decision was made in object."
+    },
+    "defined_in": {
+      "description": "Subject is defined in object file.",
+      "functional": true,
+      "range": [
+        "File"
+      ]
+    },
+    "described_in": {
+      "description": "Subject is documented in object file.",
+      "range": [
+        "File"
+      ]
+    },
+    "mentions": {
+      "description": "Subject mentions object; use sparingly."
+    },
+    "supersedes": {
+      "description": "Subject replaces object."
+    },
+    "relates_to": {
+      "description": "Generic symmetric association; use only as a last resort.",
+      "symmetric": true
+    }
+  },
+  "shapes": [],
+  "competency_questions": []
+}
