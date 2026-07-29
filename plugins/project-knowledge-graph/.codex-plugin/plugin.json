@@ -1,0 +1,38 @@
+{
+  "name": "project-knowledge-graph",
+  "version": "0.1.4",
+  "description": "Build and query governed, provenance-backed project knowledge graphs.",
+  "author": {
+    "name": "l0cka",
+    "email": "13148507+l0cka@users.noreply.github.com",
+    "url": "https://github.com/l0cka"
+  },
+  "homepage": "https://github.com/l0cka/agent-skills/tree/main/plugins/project-knowledge-graph",
+  "repository": "https://github.com/l0cka/agent-skills",
+  "keywords": [
+    "knowledge-graph",
+    "project-memory",
+    "provenance",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Project Knowledge Graph",
+    "shortDescription": "Governed project memory with fast graph queries.",
+    "longDescription": "Build, validate, maintain, and query provenance-backed project knowledge graphs from Codex.",
+    "developerName": "l0cka",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/l0cka/agent-skills",
+    "defaultPrompt": [
+      "Map this project into a governed knowledge graph.",
+      "Query this project's graph before exploring broadly.",
+      "Validate and refresh the project knowledge graph."
+    ],
+    "brandColor": "#52606D"
+  }
+}

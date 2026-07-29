@@ -3,8 +3,10 @@
   "skills": [
     {
       "name": "project-knowledge-graph",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "path": "skills/project-knowledge-graph",
+      "plugin": "plugins/project-knowledge-graph",
+      "plugin_version": "0.1.4",
       "targets": [
         "codex",
         "claude-code"

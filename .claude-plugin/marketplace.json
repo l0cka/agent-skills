@@ -1,0 +1,24 @@
+{
+  "name": "l0cka-agent-skills",
+  "owner": {
+    "name": "l0cka",
+    "email": "13148507+l0cka@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "Cross-agent skills and plugins maintained by l0cka."
+  },
+  "plugins": [
+    {
+      "name": "project-knowledge-graph",
+      "source": "./plugins/project-knowledge-graph",
+      "description": "Governed project memory with provenance-backed graph queries.",
+      "version": "0.1.4",
+      "category": "Productivity",
+      "tags": [
+        "knowledge-graph",
+        "memory",
+        "mcp"
+      ]
+    }
+  ]
+}

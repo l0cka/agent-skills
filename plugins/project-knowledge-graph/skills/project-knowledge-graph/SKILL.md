@@ -1,6 +1,6 @@
 ---
 name: project-knowledge-graph
-description: Build, govern, query, validate, refresh, and maintain a provenance-backed project knowledge graph stored as committable JSONL. Use when Codex or Claude needs to map a codebase, folder, research program, architecture, operations history, decisions, ownership, dependencies, or project memory; answer questions from an existing kg/ directory; enforce lifecycle completeness and freshness rules; detect stale or unsupported assertions; or visualize and deduplicate a project graph.
+description: Build, govern, query, validate, refresh, and maintain a provenance-backed project knowledge graph stored as committable JSONL. Use when Codex or Claude needs to map a codebase, folder, research program, architecture, operations history, decisions, ownership, dependencies, or project memory; answer questions from an existing kg/ directory through the bundled read-only MCP tools or kg.py; enforce lifecycle completeness and freshness rules; detect stale or unsupported assertions; or visualize and deduplicate a project graph.
 ---
 
 # Project Knowledge Graph
@@ -230,6 +230,18 @@ When work creates a durable fact, stage a source-scoped update, run
 ```
 
 ## Use and maintenance
+
+When the `project-knowledge-graph` MCP server is available, prefer:
+
+- `kg_overview` or `kg_health` before relying on graph assertions;
+- `kg_search` to resolve a label or alias;
+- `kg_context` for a node, its adjacent assertions, and exact provenance;
+- `kg_query` for joined triple patterns;
+- `kg_path` for dependency and relationship traversal.
+
+The MCP tools are read-only. Use the governed CLI workflow for all mutations.
+If MCP cannot resolve the active project, pass the canonical project root
+explicitly. Do not treat truncated MCP output as complete.
 
 Start a session with:
 

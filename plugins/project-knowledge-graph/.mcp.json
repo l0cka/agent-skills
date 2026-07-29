@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "project-knowledge-graph": {
+      "type": "stdio",
+      "command": "sh",
+      "args": [
+        "-c",
+        "plugin_root=\"$1\"; if [ ! -d \"$plugin_root\" ]; then plugin_root=.; fi; exec python3 \"$plugin_root/mcp/kg_mcp.py\"",
+        "project-knowledge-graph",
+        "${CLAUDE_PLUGIN_ROOT}"
+      ],
+      "cwd": "."
+    }
+  }
+}
