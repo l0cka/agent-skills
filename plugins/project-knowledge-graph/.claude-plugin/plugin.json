@@ -4,7 +4,6 @@
   "description": "Create, model, ingest, query, analyze, validate, refine, and publish governed project knowledge graphs.",
   "author": {
     "name": "l0cka",
-    "email": "13148507+l0cka@users.noreply.github.com",
     "url": "https://github.com/l0cka"
   },
   "homepage": "https://github.com/l0cka/agent-skills/tree/main/plugins/project-knowledge-graph",

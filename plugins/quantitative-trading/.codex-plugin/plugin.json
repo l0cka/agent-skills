@@ -1,10 +1,9 @@
 {
   "name": "quantitative-trading",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Evidence-led quantitative analysis for trading strategies, telemetry, backtests, execution quality, and risk.",
   "author": {
     "name": "l0cka",
-    "email": "13148507+l0cka@users.noreply.github.com",
     "url": "https://github.com/l0cka"
   },
   "homepage": "https://github.com/l0cka/agent-skills/tree/main/plugins/quantitative-trading",

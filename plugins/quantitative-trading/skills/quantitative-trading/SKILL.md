@@ -1,6 +1,6 @@
 ---
 name: quantitative-trading
-description: Perform evidence-led quantitative analysis for trading and market-making systems. Use for strategy diagnostics, backtests, edge and fill analysis, exposure and inventory review, drawdown and variance-vs-decay decisions, re-entry gates, latency, market selection, parameter tuning, venue or strategy telemetry, and mapping QuantEcon models into trading workflows.
+description: Perform evidence-led quantitative analysis for trading and market-making systems. Use for strategy diagnostics, backtests, edge and fill analysis, exposure and inventory review, drawdown and variance-vs-decay decisions, re-entry gates, latency, market selection, parameter tuning, trading telemetry, and mapping QuantEcon models into trading workflows.
 ---
 
 # Quantitative Trading
@@ -22,9 +22,11 @@ window, and live-risk controls.
    does not authorize order submission, cancellation, service restart, or a
    parameter rollout.
 
-Inventory project, deployment, and state roots from current context. Verify
-them live and do not assume paths from an older private environment. Treat
-credentials, signing material, and privileged files as sensitive.
+Discover project and data locations from the current workspace, deployment
+configuration, and user-provided scope. Do not encode private hostnames,
+usernames, absolute home paths, account identifiers, or credential locations in
+reusable output. Treat wallet, environment, token, signing, and access-control
+files as sensitive.
 
 ## Preserve Measurement Integrity
 
@@ -32,8 +34,9 @@ Apply these invariants whenever the corresponding data exists:
 
 1. Replay realized net PnL, not average signal EV. Adverse selection can make
    signal averages materially overstate executable edge.
-2. Understand venue duplication. For venue trade data, verify whether documented filters are required to
-   avoid maker/taker double counting.
+2. Understand venue duplication and maker/taker semantics. Confirm whether an
+   API returns one economic trade as multiple role-specific rows before counting
+   observations.
 3. Replay the full live firing domain and filter on realized entry conditions.
    Narrowing the domain can redefine the fire point and inflate apparent edge.
 4. Reconcile new replay or edge tools against an established report on the same

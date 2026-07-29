@@ -1,8 +1,7 @@
 {
   "name": "l0cka-agent-skills",
   "owner": {
-    "name": "l0cka",
-    "email": "13148507+l0cka@users.noreply.github.com"
+    "name": "l0cka"
   },
   "metadata": {
     "description": "Cross-agent skills and plugins maintained by l0cka."
@@ -24,7 +23,7 @@
       "name": "quantitative-trading",
       "source": "./plugins/quantitative-trading",
       "description": "Evidence-led quantitative analysis for trading strategies, telemetry, backtests, execution quality, and risk.",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "category": "Productivity",
       "tags": [
         "quantitative-trading",

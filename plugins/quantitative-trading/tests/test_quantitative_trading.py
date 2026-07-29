@@ -12,6 +12,7 @@ import unittest
 
 
 PLUGIN_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[3]
 SCRIPTS = PLUGIN_ROOT / "scripts"
 
 
@@ -114,6 +115,32 @@ class QuantitativeTradingHelpersTest(unittest.TestCase):
             check=False,
         )
         self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_public_metadata_excludes_private_identifiers(self):
+        private_markers = (
+            "daniel" + "kurdi0" + "@" + "gmail.com",
+            "/home/" + "l0cka",
+            "/Users/" + "l0cka",
+            "ar" + "gus",
+            "mm" + "-bot",
+            "quantecon" + "-mm-quant",
+        )
+        paths = [
+            path
+            for path in PLUGIN_ROOT.rglob("*")
+            if path.is_file()
+            and path.suffix.lower() in {".json", ".md", ".py", ".sh", ".yaml", ".yml"}
+        ]
+        paths.extend(
+            [
+                REPO_ROOT / ".claude-plugin" / "marketplace.json",
+                REPO_ROOT / "skills.json",
+            ]
+        )
+        for path in paths:
+            text = path.read_text(encoding="utf-8").casefold()
+            for marker in private_markers:
+                self.assertNotIn(marker.casefold(), text, str(path))
 
 
 if __name__ == "__main__":

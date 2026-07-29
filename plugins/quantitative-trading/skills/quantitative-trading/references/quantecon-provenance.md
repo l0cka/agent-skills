@@ -1,6 +1,6 @@
 # QuantEcon source provenance
 
-The private predecessor skill used a shallow checkout of:
+An earlier private version bundled a shallow checkout of:
 
 - Repository: `https://github.com/QuantEcon/lecture-python.myst`
 - Captured commit: `dba5555ac22c4127d46bb9fcd209fc6f449d2662`
