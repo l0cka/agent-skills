@@ -96,6 +96,18 @@
         "claude-code"
       ],
       "source": "Derived from Hogan et al., Knowledge Graphs (2021), Chapter 9."
+    },
+    {
+      "name": "quantitative-trading",
+      "version": "1.0.0",
+      "path": "skills/quantitative-trading",
+      "plugin": "plugins/quantitative-trading",
+      "plugin_version": "0.3.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Derived from a privately maintained quantitative-trading workflow; optional QuantEcon references are pinned to upstream commit dba5555ac22c4127d46bb9fcd209fc6f449d2662."
     }
   ]
 }

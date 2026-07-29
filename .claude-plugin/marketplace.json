@@ -19,6 +19,19 @@
         "memory",
         "mcp"
       ]
+    },
+    {
+      "name": "quantitative-trading",
+      "source": "./plugins/quantitative-trading",
+      "description": "Evidence-led quantitative analysis for trading strategies, telemetry, backtests, execution quality, and risk.",
+      "version": "0.3.0",
+      "category": "Productivity",
+      "tags": [
+        "quantitative-trading",
+        "market-making",
+        "risk",
+        "quantecon"
+      ]
     }
   ]
 }

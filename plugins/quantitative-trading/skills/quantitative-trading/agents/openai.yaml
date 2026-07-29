@@ -1,0 +1,4 @@
+interface:
+  display_name: "Quantitative Trading"
+  short_description: "Analyze trading telemetry with quantitative rigor"
+  default_prompt: "Use $quantitative-trading to assess this strategy with evidence, risk controls, and a verification plan."

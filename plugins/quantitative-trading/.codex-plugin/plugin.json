@@ -1,0 +1,38 @@
+{
+  "name": "quantitative-trading",
+  "version": "0.3.0",
+  "description": "Evidence-led quantitative analysis for trading strategies, telemetry, backtests, execution quality, and risk.",
+  "author": {
+    "name": "l0cka",
+    "email": "13148507+l0cka@users.noreply.github.com",
+    "url": "https://github.com/l0cka"
+  },
+  "homepage": "https://github.com/l0cka/agent-skills/tree/main/plugins/quantitative-trading",
+  "repository": "https://github.com/l0cka/agent-skills",
+  "keywords": [
+    "quantitative-trading",
+    "market-making",
+    "backtesting",
+    "risk",
+    "telemetry",
+    "quantecon"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Quantitative Trading",
+    "shortDescription": "Evidence-led strategy, execution, and risk analysis.",
+    "longDescription": "Analyze trading strategy health, edge, fills, exposure, drawdowns, latency, market selection, inventory, and parameter changes with reproducible evidence and explicit live-risk controls.",
+    "developerName": "l0cka",
+    "category": "Productivity",
+    "capabilities": [
+      "Read"
+    ],
+    "websiteURL": "https://github.com/l0cka/agent-skills",
+    "defaultPrompt": [
+      "Assess this strategy's edge and drawdown evidence.",
+      "Profile this trading telemetry and flag data traps.",
+      "Design a holdout-safe backtest and risk plan."
+    ],
+    "brandColor": "#0F766E"
+  }
+}

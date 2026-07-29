@@ -16,21 +16,27 @@ agent-skills/
 ├── .agents/plugins/marketplace.json
 ├── .claude-plugin/marketplace.json
 ├── plugins/
-│   └── project-knowledge-graph/
+│   ├── project-knowledge-graph/
+│   │   ├── .codex-plugin/plugin.json
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── skills/
+│   │   │   ├── setup-project-graph/
+│   │   │   ├── model-project-graph/
+│   │   │   ├── ingest-project-graph/
+│   │   │   ├── query-project-graph/
+│   │   │   ├── analyze-project-graph/
+│   │   │   ├── validate-project-graph/
+│   │   │   ├── refine-project-graph/
+│   │   │   └── publish-project-graph/
+│   │   ├── hooks/
+│   │   ├── .mcp.json
+│   │   └── mcp/
+│   └── quantitative-trading/
 │       ├── .codex-plugin/plugin.json
 │       ├── .claude-plugin/plugin.json
-│       ├── skills/
-│       │   ├── setup-project-graph/
-│       │   ├── model-project-graph/
-│       │   ├── ingest-project-graph/
-│       │   ├── query-project-graph/
-│       │   ├── analyze-project-graph/
-│       │   ├── validate-project-graph/
-│       │   ├── refine-project-graph/
-│       │   └── publish-project-graph/
-│       ├── hooks/
-│       ├── .mcp.json
-│       └── mcp/
+│       ├── skills/quantitative-trading/
+│       ├── scripts/
+│       └── tests/
 ├── skills/                  # compatibility symlinks
 ├── scripts/
 │   ├── sync_skills.py
@@ -55,23 +61,28 @@ each client:
 ```bash
 codex plugin marketplace add l0cka/agent-skills
 codex plugin add project-knowledge-graph@l0cka-agent-skills
+codex plugin add quantitative-trading@l0cka-agent-skills
 
 claude plugin marketplace add l0cka/agent-skills
 claude plugin install project-knowledge-graph@l0cka-agent-skills --scope user
+claude plugin install quantitative-trading@l0cka-agent-skills --scope user
 ```
 
-The plugin supplies eight focused skills, a read-only local MCP server, and a bounded
-`SessionStart` graph brief. Project `kg/` files remain the canonical memory;
-native Codex and Claude memories remain supplementary recall layers.
+The knowledge-graph plugin supplies eight focused skills, a read-only local MCP
+server, and a bounded `SessionStart` graph brief. The quantitative-trading
+plugin supplies evidence-led strategy, execution, telemetry, and risk analysis
+with optional commit-pinned QuantEcon references.
 
 Update installed releases with:
 
 ```bash
 codex plugin marketplace upgrade l0cka-agent-skills
 codex plugin add project-knowledge-graph@l0cka-agent-skills
+codex plugin add quantitative-trading@l0cka-agent-skills
 
 claude plugin marketplace update l0cka-agent-skills
 claude plugin update project-knowledge-graph@l0cka-agent-skills
+claude plugin update quantitative-trading@l0cka-agent-skills
 ```
 
 ## Standalone skill compatibility
