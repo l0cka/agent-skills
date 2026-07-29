@@ -1,6 +1,6 @@
 {
   "name": "quantitative-trading",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Evidence-led quantitative analysis for trading strategies, telemetry, backtests, execution quality, and risk.",
   "author": {
     "name": "l0cka",

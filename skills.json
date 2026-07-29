@@ -102,7 +102,7 @@
       "version": "1.0.0",
       "path": "skills/quantitative-trading",
       "plugin": "plugins/quantitative-trading",
-      "plugin_version": "0.3.1",
+      "plugin_version": "0.3.2",
       "targets": [
         "codex",
         "claude-code"

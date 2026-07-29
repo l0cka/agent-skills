@@ -12,7 +12,6 @@ import unittest
 
 
 PLUGIN_ROOT = Path(__file__).resolve().parents[1]
-REPO_ROOT = Path(__file__).resolve().parents[3]
 SCRIPTS = PLUGIN_ROOT / "scripts"
 
 
@@ -131,12 +130,12 @@ class QuantitativeTradingHelpersTest(unittest.TestCase):
             if path.is_file()
             and path.suffix.lower() in {".json", ".md", ".py", ".sh", ".yaml", ".yml"}
         ]
-        paths.extend(
-            [
-                REPO_ROOT / ".claude-plugin" / "marketplace.json",
-                REPO_ROOT / "skills.json",
-            ]
-        )
+        for parent in Path(__file__).resolve().parents:
+            registry = parent / "skills.json"
+            marketplace = parent / ".claude-plugin" / "marketplace.json"
+            if registry.is_file() and marketplace.is_file():
+                paths.extend([registry, marketplace])
+                break
         for path in paths:
             text = path.read_text(encoding="utf-8").casefold()
             for marker in private_markers:
