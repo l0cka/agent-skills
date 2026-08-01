@@ -204,6 +204,18 @@
         "claude-code"
       ],
       "source": "Method scope informed by Algorithmic Trading Methods, second edition (Academic Press / Elsevier, 2021), Chapters 17 and 18."
+    },
+    {
+      "name": "docs-sweep",
+      "version": "1.0.0",
+      "path": "skills/docs-sweep",
+      "plugin": "plugins/docs-sweep",
+      "plugin_version": "0.1.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Original project-wide documentation maintenance workflow by l0cka."
     }
   ]
 }

@@ -16,6 +16,10 @@ agent-skills/
 ├── .agents/plugins/marketplace.json
 ├── .claude-plugin/marketplace.json
 ├── plugins/
+│   ├── docs-sweep/
+│   │   ├── .codex-plugin/plugin.json
+│   │   ├── .claude-plugin/plugin.json
+│   │   └── skills/docs-sweep/
 │   ├── project-knowledge-graph/
 │   │   ├── .codex-plugin/plugin.json
 │   │   ├── .claude-plugin/plugin.json
@@ -61,13 +65,22 @@ each client:
 
 ```bash
 codex plugin marketplace add l0cka/agent-skills
+codex plugin add docs-sweep@l0cka-agent-skills
 codex plugin add project-knowledge-graph@l0cka-agent-skills
 codex plugin add quantitative-trading@l0cka-agent-skills
 
 claude plugin marketplace add l0cka/agent-skills
+claude plugin install docs-sweep@l0cka-agent-skills --scope user
 claude plugin install project-knowledge-graph@l0cka-agent-skills --scope user
 claude plugin install quantitative-trading@l0cka-agent-skills --scope user
 ```
+
+Docs Sweep supplies one project-wide workflow that inventories documentation,
+reconciles it against repository evidence, validates the changes, and uses an
+existing Project Knowledge Graph when available without requiring it. Invoke
+the standalone skill as `/docs-sweep` in Claude Code or `$docs-sweep` in Codex.
+Claude Code namespaces the marketplace-plugin form as
+`/docs-sweep:docs-sweep`.
 
 The knowledge-graph plugin supplies eight focused skills, a read-only local MCP
 server, and a bounded `SessionStart` graph brief. The quantitative-trading
@@ -80,10 +93,12 @@ Update installed releases with:
 
 ```bash
 codex plugin marketplace upgrade l0cka-agent-skills
+codex plugin add docs-sweep@l0cka-agent-skills
 codex plugin add project-knowledge-graph@l0cka-agent-skills
 codex plugin add quantitative-trading@l0cka-agent-skills
 
 claude plugin marketplace update l0cka-agent-skills
+claude plugin update docs-sweep@l0cka-agent-skills
 claude plugin update project-knowledge-graph@l0cka-agent-skills
 claude plugin update quantitative-trading@l0cka-agent-skills
 ```

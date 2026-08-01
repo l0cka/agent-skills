@@ -1,0 +1,36 @@
+{
+  "name": "docs-sweep",
+  "version": "0.1.0",
+  "description": "Audit and update documentation across an entire project, with optional Project Knowledge Graph integration.",
+  "author": {
+    "name": "l0cka",
+    "url": "https://github.com/l0cka"
+  },
+  "homepage": "https://github.com/l0cka/agent-skills/tree/main/plugins/docs-sweep",
+  "repository": "https://github.com/l0cka/agent-skills",
+  "keywords": [
+    "documentation",
+    "docs",
+    "maintenance",
+    "knowledge-graph"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Docs Sweep",
+    "shortDescription": "Refresh documentation across a whole project.",
+    "longDescription": "Audit and update project-wide documentation against current repository evidence, validate the result, and use an existing project knowledge graph when available.",
+    "developerName": "l0cka",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/l0cka/agent-skills",
+    "defaultPrompt": [
+      "Bring every project document in sync with the code.",
+      "Find and fix stale setup, API, and operations docs.",
+      "Sweep the docs and refresh the existing project graph."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

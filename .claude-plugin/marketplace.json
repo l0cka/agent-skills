@@ -33,6 +33,18 @@
         "risk",
         "quantecon"
       ]
+    },
+    {
+      "name": "docs-sweep",
+      "source": "./plugins/docs-sweep",
+      "description": "Project-wide documentation maintenance with optional knowledge graph integration.",
+      "version": "0.1.0",
+      "category": "Productivity",
+      "tags": [
+        "documentation",
+        "maintenance",
+        "knowledge-graph"
+      ]
     }
   ]
 }
