@@ -4,16 +4,16 @@
 
 Treat extraction as a joint loop:
 
-- preprocess by coherent section, function, class, or decision record;
-- recognize node-worthy entities;
-- link mentions to existing identities;
+- preprocess by coherent section, function, class, or decision record.
+- recognize node-worthy entities.
+- link mentions to existing identities.
 - extract typed relations with exact evidence.
 
 Headings, symbols, imports, links, and tables carry structure. Preserve that
 structure instead of flattening everything into prose.
 
 Create nodes for named, recurrent, cross-source referents. Keep one-off values
-and ordinary scalar attributes in properties. Search before creating; alias
+and ordinary scalar attributes in properties. Search before creating. Alias
 splitting is a common source of duplicate nodes.
 
 ## Structured sources

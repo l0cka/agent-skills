@@ -37,13 +37,14 @@ truncation, hidden sensitive fields, and broken labels.
 
 Publish data together with:
 
-- purpose and scope;
-- schema or vocabulary description;
-- provenance and graph hash;
-- generation instructions;
-- license and usage policy;
-- access method and expected stability;
+- purpose and scope.
+- schema or vocabulary description.
+- provenance and graph hash.
+- generation instructions.
+- license and usage policy.
+- access method and expected stability.
 - quality, timeliness, and coverage caveats.
 
-Do not infer permission to publish from the ability to export. Encryption,
-anonymization, access control, or a private distribution channel may be required.
+Do not infer permission to publish from the ability to export. Protect the graph
+with encryption, anonymization, access control, or a private distribution
+channel when the risk requires it.

@@ -24,9 +24,9 @@ Reopen the cited source and test whether it still supports the assertion.
 Multiple independent sources can provide stronger support, but source count
 does not override a newer canonical source or a clearly scoped policy.
 
-Detecting inconsistency does not prove which assertion should be removed. Prefer
-the smallest evidence-backed repair. Check that inference rules will not
-recreate a removed contradiction.
+An inconsistency does not identify the assertion to remove. Prefer the smallest
+evidence-backed repair. Check that inference rules will not recreate a removed
+contradiction.
 
 ## Source-scoped maintenance
 

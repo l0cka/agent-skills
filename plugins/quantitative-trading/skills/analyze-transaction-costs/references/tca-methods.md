@@ -24,10 +24,10 @@ aggregation.
 Construct a bridge from the paper portfolio at the decision benchmark to the
 actual outcome:
 
-1. executed-price cost relative to the benchmark;
-2. explicit commissions, fees, taxes, and rebates;
-3. delay cost between the decision and release;
-4. opportunity cost on residual quantity at the declared terminal price;
+1. executed-price cost relative to the benchmark.
+2. explicit commissions, fees, taxes, and rebates.
+3. delay cost between the decision and release.
+4. opportunity cost on residual quantity at the declared terminal price.
 5. unexplained residual from rounding, FX, corporate actions, or missing data.
 
 Expanded labels such as spread, impact, and market movement can be useful, but
@@ -55,11 +55,11 @@ participation, duration, market move, completion, and parent-order identifier.
 Choose the design:
 
 - randomized or genuinely matched parent orders: paired differences and a
-  paired nonparametric or permutation test;
+  paired nonparametric or permutation test.
 - separate comparable populations: rank, permutation, or robust
-  regression-adjusted tests;
+  regression-adjusted tests.
 - repeated orders by asset, day, or manager: clustered or hierarchical
-  uncertainty;
+  uncertainty.
 - skewed tails: median, quantiles, expected shortfall, and tail frequencies in
   addition to the mean.
 
@@ -76,11 +76,11 @@ later moved in its favor.
 
 ## Minimum report
 
-- covered orders, dates, venues, and data completeness;
-- benchmark and sign convention;
-- total shortfall and additive decomposition;
-- completion and opportunity cost;
-- distribution and tail behavior;
-- fair-comparison design and uncertainty;
-- sensitivity to benchmark, exclusions, and categorization;
+- covered orders, dates, venues, and data completeness.
+- benchmark and sign convention.
+- total shortfall and additive decomposition.
+- completion and opportunity cost.
+- distribution and tail behavior.
+- fair-comparison design and uncertainty.
+- sensitivity to benchmark, exclusions, and categorization.
 - actionable control or experiment.

@@ -19,8 +19,8 @@ Assess quality against the graph's intended use.
 - **Representativeness:** coverage is not skewed toward whichever source class
   was easiest to ingest.
 
-Under open-world semantics, incomplete coverage is expected. Report it; do not
-turn absence into a negative fact.
+Open-world semantics allow incomplete coverage. Report it. Do not turn absence
+into a negative fact.
 
 ## Coherency
 
@@ -40,5 +40,5 @@ for a future agent to distinguish similarly named entities.
 ## Source
 
 Paraphrased from Aidan Hogan et al., *Knowledge Graphs* (Morgan & Claypool,
-2021), Chapter 7, which frames quality as fitness for purpose across accuracy,
-coverage, coherency, succinctness, and related dimensions.
+2021), Chapter 7. The chapter frames quality as fitness for purpose across
+accuracy, coverage, coherency, succinctness, and related dimensions.

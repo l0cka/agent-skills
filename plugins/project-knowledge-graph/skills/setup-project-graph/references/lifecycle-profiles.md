@@ -86,17 +86,17 @@ Durable entity <- observes - Observation
 
 An observation requires:
 
-- `props.observed_at` as an absolute ISO timestamp;
-- a shape with `freshness.path` and `max_age_days`;
-- deliberate `mark-ingested --allow-runtime`;
+- `props.observed_at` as an absolute ISO timestamp.
+- a shape with `freshness.path` and `max_age_days`.
+- deliberate `mark-ingested --allow-runtime`.
 - no secret, credential, wallet, or private-key material.
 
 Prefer regenerable, ignored observation files. Never let a stale observation satisfy a durable lifecycle gate.
 
 ## Basis
 
-These profiles are project-governance extensions to the general lifecycle in
-Aidan Hogan et al., *Knowledge Graphs* (Morgan & Claypool, 2021): incremental
-creation and enrichment, quality assessment, refinement, and publication. They
-are optional local shapes, not claims that the textbook defines these project
-domains.
+These profiles extend the general project lifecycle with governance controls.
+The general lifecycle covers incremental creation and enrichment, quality
+assessment, refinement, and publication. See Aidan Hogan et al., *Knowledge
+Graphs* (Morgan & Claypool, 2021). These are optional local shapes. The textbook
+does not define these project domains.

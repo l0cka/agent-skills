@@ -12,8 +12,8 @@ presenting graph-derived conclusions.
 
 Label every result as one of:
 
-- **asserted:** directly stored with source provenance;
-- **entailed:** follows deterministically from declared schema behavior;
+- **asserted:** directly stored with source provenance.
+- **entailed:** follows deterministically from declared schema behavior.
 - **candidate:** suggested by topology, similarity, or a statistical pattern.
 
 Only asserted relationships have source evidence. Entailments must name the
@@ -42,7 +42,7 @@ python3 kg/kg.py --kg kg dupes
 4. Reopen source-backed context for any asserted relationship included in the
    answer.
 5. Explain method, scope, and uncertainty. Centrality is not importance in every
-   business sense; community membership is not ontology; similarity is not
+   business sense. Community membership is not ontology. Similarity is not
    identity.
 6. Route actionable candidates to `$refine-project-graph`.
 

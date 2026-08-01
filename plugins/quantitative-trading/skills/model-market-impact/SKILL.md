@@ -26,10 +26,10 @@ citing or extending the published framework.
 
 ## Specify And Fit
 
-Start with an interpretable baseline using order size relative to expected
-volume, participation or trading rate, volatility, spread, duration, liquidity
-stability, and market regime. Add factors only when they improve temporal
-holdout performance and preserve plausible behavior.
+Start with an interpretable baseline. Use order size relative to expected volume,
+participation or trading rate, volatility, spread, duration, liquidity stability,
+and market regime. Add factors only when they improve temporal holdout
+performance and preserve plausible behavior.
 
 Require the fitted response to be directionally sensible within the supported
 domain: larger or faster orders should not become cheaper without an explained

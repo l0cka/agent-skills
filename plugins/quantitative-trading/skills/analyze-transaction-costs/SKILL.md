@@ -30,11 +30,11 @@ published framework.
 
 Report, when observable:
 
-- commissions, fees, taxes, and rebates;
-- spread or liquidity-taking cost;
-- delay between decision and order release;
-- market impact and market movement;
-- timing risk and benchmark uncertainty;
+- commissions, fees, taxes, and rebates.
+- spread or liquidity-taking cost.
+- delay between decision and order release.
+- market impact and market movement.
+- timing risk and benchmark uncertainty.
 - opportunity cost from unfilled or cancelled quantity.
 
 Make the decomposition add back to total implementation shortfall or explain the
@@ -43,10 +43,10 @@ residual. Do not label a component causal unless the design identifies it.
 ## Compare Fairly
 
 Match or stratify by side, order size, liquidity, volatility, horizon, market
-movement, algorithm family, and mandate. Use paired tests only when orders were
-assigned in a way that makes the pairs independent and the algorithms do not
-interfere. Otherwise use independent-sample, regression-adjusted, or
-hierarchical comparisons.
+movement, algorithm family, and mandate. Use paired tests only when the
+assignment process makes pairs independent and algorithms do not interfere.
+Otherwise use independent-sample, regression-adjusted, or hierarchical
+comparisons.
 
 Report effect size, confidence interval, sample size, cluster count, tail loss,
 and completion rate. Correct for repeated slicing of the same economic order and
@@ -54,7 +54,7 @@ multiple testing.
 
 ## Deliver
 
-Provide the question, population, benchmark and sign convention, covered period,
-reconciliation, cost bridge, uncertainty, stratified comparisons, outliers,
-missing data, and the next test or execution change. Keep live mutations outside
-scope unless explicitly authorized.
+Provide the question, population, benchmark, sign convention, and covered
+period. Provide the reconciliation, cost bridge, uncertainty, comparisons,
+outliers, and missing data. State the next test or execution change. Keep live
+mutations outside scope unless explicitly authorized.

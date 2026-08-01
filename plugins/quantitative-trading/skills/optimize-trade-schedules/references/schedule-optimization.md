@@ -10,14 +10,14 @@ minimize expected_execution_cost(schedule)
 ```
 
 The cost term may include temporary impact, spread, fees, and expected alpha
-decay. A schedule-independent constant can be omitted during optimization, but
-must be restored when reporting total expected cost.
+decay. You can omit a schedule-independent constant during optimization. Restore
+it when reporting total expected cost.
 
-Alternative formulations are often easier to govern:
+Use alternative formulations to improve governance:
 
-- minimize expected cost subject to a maximum risk;
-- minimize risk subject to a cost or participation budget;
-- minimize expected shortfall or another tail measure;
+- minimize expected cost subject to a maximum risk.
+- minimize risk subject to a cost or participation budget.
+- minimize expected shortfall or another tail measure.
 - optimize cost first, then choose the least risky schedule within a tolerance.
 
 Map every `lambda` to observable cost, risk, and completion outputs. Never copy
@@ -35,13 +35,13 @@ parameterized solution against a richer benchmark on representative cases.
 
 ## Constraint checklist
 
-- total scheduled quantity equals the parent quantity;
-- residual quantity moves toward zero and completes by the deadline;
-- child quantity and participation stay within minimum and maximum bounds;
-- side does not flip unless explicitly permitted;
-- lot, tick, venue, auction, and restricted-period rules are met;
-- portfolio cash, gross, net, factor, and hedge constraints are met;
-- stale or missing forecasts produce a safe fallback;
+- total scheduled quantity equals the parent quantity.
+- residual quantity moves toward zero and completes by the deadline.
+- child quantity and participation stay within minimum and maximum bounds.
+- side does not flip unless explicitly permitted.
+- lot, tick, venue, auction, and restricted-period rules are met.
+- portfolio cash, gross, net, factor, and hedge constraints are met.
+- stale or missing forecasts produce a safe fallback.
 - integer rounding preserves feasibility.
 
 ## Solver validation

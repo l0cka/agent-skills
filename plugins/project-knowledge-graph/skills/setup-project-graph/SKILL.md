@@ -34,7 +34,7 @@ Use `--profile research` only when Experiment, Gate, Decision, Lesson, and
 Strategy lifecycles are central. `init` copies the dependency-free tool into
 `kg/kg.py`.
 
-6. Use `$model-project-graph` to curate `schema.json`; do not accept a broad
+6. Use `$model-project-graph` to curate `schema.json`. Do not accept a broad
    default vocabulary without reviewing it against the competency questions.
 7. Use `$ingest-project-graph` to build the initial core source by source.
 8. Use `$validate-project-graph` as the completion gate.

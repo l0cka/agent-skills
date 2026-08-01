@@ -11,7 +11,7 @@ identity or resolving contradictions.
 
 ## Rule
 
-Analytics produce candidates; sources justify mutations. Never convert a
+Analytics produce candidates. Sources justify mutations. Never convert a
 similarity score, centrality result, inferred type, or learned rule directly
 into an authoritative assertion.
 
@@ -35,7 +35,7 @@ python3 kg/kg.py --kg kg merge duplicate:id canonical:id --dry-run
 ```
 
 Resolve conflicting descriptions or properties explicitly with a reviewed
-manual edit or `--prefer canon|dup`; never silently concatenate them.
+manual edit or `--prefer canon|dup`. Never silently concatenate them.
 
 5. For changed sources, use source-scoped `refresh-source --dry-run` before
    applying. Preview removal with `remove-source PATH --dry-run`.

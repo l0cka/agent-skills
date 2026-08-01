@@ -1,11 +1,13 @@
+![Agent skills logo](assets/logo.png)
+
 # Agent skills and plugins
 
 Canonical source repository for custom skills and plugins shared by Codex and
 Claude Code.
 
-Plugin-backed skills live once inside their plugin. Compatibility symlinks under
-`skills/` preserve standalone installation for older clients, while marketplace
-installs provide the skill suite, MCP tools, and hooks as one versioned unit.
+Plugin-backed skills live in one plugin. Compatibility symlinks under `skills/`
+preserve standalone installation for older clients. Marketplace installs provide
+the skill suite, MCP tools, and hooks as one versioned unit.
 
 Public repository: [github.com/l0cka/agent-skills](https://github.com/l0cka/agent-skills)
 
@@ -13,6 +15,8 @@ Public repository: [github.com/l0cka/agent-skills](https://github.com/l0cka/agen
 
 ```text
 agent-skills/
+├── assets/
+│   └── logo.png
 ├── .agents/plugins/marketplace.json
 ├── .claude-plugin/marketplace.json
 ├── plugins/
@@ -52,6 +56,15 @@ agent-skills/
 └── skills.json
 ```
 
+## Brand assets
+
+Each package has a square PNG logo.
+
+- Repository: [assets/logo.png](assets/logo.png)
+- Project Knowledge Graph: [plugins/project-knowledge-graph/assets/logo.png](plugins/project-knowledge-graph/assets/logo.png)
+- Quantitative Trading: [plugins/quantitative-trading/assets/logo.png](plugins/quantitative-trading/assets/logo.png)
+- Technical Documentation: [plugins/technical-documentation/assets/logo.png](plugins/technical-documentation/assets/logo.png)
+
 ## Validate
 
 ```bash
@@ -77,13 +90,13 @@ claude plugin install project-knowledge-graph@l0cka-agent-skills --scope user
 claude plugin install quantitative-trading@l0cka-agent-skills --scope user
 ```
 
-Technical Documentation supplies the `docs-sweep` project-wide maintenance
-workflow and a focused ASD-STE100 Simplified Technical English workflow. The
-main sweep inventories documentation and reconciles it against repository
-evidence. It applies STE
-Issue 9 to human-facing prose and validates the changes. It also refreshes
-changed sources that an existing Project Knowledge Graph tracks. An incomplete
-STE gate or a blocked graph refresh prevents a complete result.
+The Technical Documentation plugin supplies the `docs-sweep` project-wide
+maintenance workflow and a focused ASD-STE100 Simplified Technical English
+workflow. The main sweep inventories documentation and reconciles it against
+repository evidence. It applies STE Issue 9 to human-facing prose and validates
+the changes. It also refreshes changed sources that an existing Project
+Knowledge Graph tracks. An incomplete STE gate or a blocked graph refresh
+prevents a complete result.
 
 Invoke the main skill as
 `/docs-sweep` in Claude Code or `$docs-sweep` in Codex. Invoke the focused skill
@@ -100,7 +113,7 @@ volume, execution risk, schedule optimization, and cost-aware portfolios. Its
 published-method provenance is explicit. Optional QuantEcon references remain
 commit-pinned.
 
-Update installed releases with:
+To update installed releases, run:
 
 ```bash
 codex plugin marketplace upgrade l0cka-agent-skills

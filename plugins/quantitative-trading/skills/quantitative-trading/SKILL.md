@@ -95,19 +95,19 @@ python3 <plugin-root>/scripts/search_lectures.py "search terms"
 
 The scripts use `QUANTITATIVE_TRADING_QUANTECON_ROOT` when set, otherwise
 `${XDG_CACHE_HOME:-$HOME/.cache}/quantitative-trading/lecture-python.myst`.
-Cite the lecture file and explain its relevance; do not turn a trading decision
+Cite the lecture file and explain its relevance. Do not turn a trading decision
 into a generic economics lesson.
 
 ## Output Contract
 
 Provide:
 
-- the decision, conclusion, and focused skill or method used;
-- exact source files or datasets and covered time window;
-- metric definitions, units, denominators, uncertainty, and exclusions;
-- evidence for and against the hypothesis;
-- expected benefit, tail risk, and live-risk concern;
-- a reversible verification or rollout plan;
+- the decision, conclusion, and focused skill or method used.
+- exact source files or datasets and covered time window.
+- metric definitions, units, denominators, uncertainty, and exclusions.
+- evidence for and against the hypothesis.
+- expected benefit, tail risk, and live-risk concern.
+- a reversible verification or rollout plan.
 - explicit unknowns and the next evidence needed.
 
 Default to read-only work. Never submit, cancel, sell, unpark, recreate, deploy,

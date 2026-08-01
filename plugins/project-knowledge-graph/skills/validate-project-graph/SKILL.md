@@ -32,7 +32,7 @@ Mechanical success is necessary but insufficient:
    canonical sources.
 3. Check representation across code, decisions, people, operations, and process
    where relevant.
-4. Review `orphans` and `dupes`; justify real islands and resolve identity
+4. Review `orphans` and `dupes`. Justify real islands and resolve identity
    splits.
 5. Confirm lifecycle shapes reach their required decisions, outcomes, or
    verification gates.
@@ -42,11 +42,11 @@ Mechanical success is necessary but insufficient:
 
 State:
 
-- graph hash and validation time;
-- intended uses that are supported;
-- blocked uses and why;
-- errors, warnings, stale sources, and coverage gaps;
-- spot-check sample and result;
+- graph hash and validation time.
+- supported intended uses.
+- blocked uses and why.
+- errors, warnings, stale sources, and coverage gaps.
+- spot-check sample and result.
 - exact remediation owner or next action.
 
 Do not interpret a green validator as proof of complete real-world knowledge.

@@ -13,7 +13,7 @@ anti-joins, filters, and paths.
 
 1. Call `kg_overview` or `kg_health` before relying on the graph.
 2. Resolve entities with `kg_search`.
-3. Call `kg_context` before citing a relationship; it returns adjacent
+3. Call `kg_context` before citing a relationship. It returns adjacent
    assertions and exact provenance.
 4. Use `kg_query` for joined triple patterns and `kg_path` for shortest paths.
 5. Cite the returned assertion source, not merely the graph.

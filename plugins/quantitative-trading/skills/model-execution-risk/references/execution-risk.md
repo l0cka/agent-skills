@@ -8,10 +8,10 @@ multiplier, and currency.
 
 Compare:
 
-- rolling historical volatility as a transparent baseline;
-- exponentially weighted estimates for faster adaptation;
+- rolling historical volatility as a transparent baseline.
+- exponentially weighted estimates for faster adaptation.
 - ARCH or GARCH-family models when conditional variance is material and there
-  is enough data to estimate them reliably;
+  is enough data to estimate them reliably.
 - implied or market-wide volatility as a scenario input, not an automatic
   substitute for instrument-specific risk.
 
@@ -67,13 +67,13 @@ uncertainty.
 
 At minimum test:
 
-- volatility multipliers and volatility-of-volatility;
-- correlation moving toward one within stressed groups;
-- factor shocks and basis breakdown;
-- stale or missing instruments;
-- volume shortfall and extended horizon;
-- opening, closing, and overnight gap scenarios;
+- volatility multipliers and volatility-of-volatility.
+- correlation moving toward one within stressed groups.
+- factor shocks and basis breakdown.
+- stale or missing instruments.
+- volume shortfall and extended horizon.
+- opening, closing, and overnight gap scenarios.
 - covariance estimated from alternative windows.
 
-Define what the system does if covariance cannot be repaired or a required risk
-input is stale.
+Define system behavior when covariance repair fails or a required risk input is
+stale.

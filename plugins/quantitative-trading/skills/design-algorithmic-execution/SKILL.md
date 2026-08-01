@@ -26,7 +26,7 @@ extending the published framework.
 4. Express the objective as cost minimization, risk minimization, a cost-risk
    trade-off, a hard cost or risk constraint, or price improvement.
 5. Select an execution style and initial schedule consistent with that objective.
-   Treat vendor labels as metadata; inspect actual behavior and parameters.
+   Treat vendor labels as metadata. Inspect actual behavior and parameters.
 6. Define adaptation inputs, thresholds, bounds, cooldowns, and a fallback.
    Separate favorable-opportunity logic from adverse-risk protection.
 7. Specify pre-trade estimates, intraday monitoring, post-trade attribution, and
@@ -41,7 +41,7 @@ extending the published framework.
 - Compare the realized path with both the original plan and the rules that
   authorized any deviation.
 - Do not call a favorable outcome "best execution" when the process violated
-  the mandate; distinguish decision quality from luck.
+  the mandate. Distinguish decision quality from luck.
 
 ## Bound Live Risk
 
@@ -54,6 +54,6 @@ Analysis does not authorize sending, changing, or cancelling live orders.
 
 ## Deliver
 
-Provide the mandate, ex-ante benchmark, objective, initial schedule or parameter
-range, adaptation rules, hard controls, required data, assumptions, and a
-post-trade test that could show the plan was wrong.
+Provide the mandate, ex-ante benchmark, objective, and initial schedule or
+parameter range. Provide adaptation rules, hard controls, required data, and
+assumptions. Define a post-trade test that could show the plan was wrong.

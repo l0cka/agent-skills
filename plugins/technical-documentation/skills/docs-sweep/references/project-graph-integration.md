@@ -1,7 +1,7 @@
 # Existing Project Knowledge Graph integration
 
 Use this path when the project already contains `kg/manifest.json`. The graph
-plugin remains optional; synchronization of changed tracked sources does not.
+plugin remains optional. Synchronization of changed tracked sources does not.
 
 ## Capture the baseline
 
@@ -21,7 +21,7 @@ Capture non-zero results as baseline evidence instead of aborting. A failing
 baseline means the graph is not healthy, but does not authorize broad repair.
 
 3. Query the graph before broad exploration. For a plugin install, use
-   `project-knowledge-graph:query-project-graph`; for a standalone install, use
+   `project-knowledge-graph:query-project-graph`. For a standalone install, use
    `query-project-graph`. Prefer `kg_health`, `kg_overview`, `kg_search`, and
    `kg_context` when the read-only MCP tools are available.
 4. Treat the graph as a navigation and provenance index, not as independent
@@ -32,13 +32,13 @@ baseline means the graph is not healthy, but does not authorize broad repair.
 
 For plugin installations, load these namespaced skills as needed:
 
-- `project-knowledge-graph:ingest-project-graph`;
-- `project-knowledge-graph:refine-project-graph`;
+- `project-knowledge-graph:ingest-project-graph`.
+- `project-knowledge-graph:refine-project-graph`.
 - `project-knowledge-graph:validate-project-graph`.
 
 Accept `ingest-project-graph`, `refine-project-graph`, and
 `validate-project-graph` as standalone fallbacks. Prefer the project's
-`kg/kg.py`; otherwise use the CLI bundled with the loaded graph skill. Confirm
+`kg/kg.py`. Otherwise use the CLI bundled with the loaded graph skill. Confirm
 that the resolved CLI supports `refresh-source`, `validate --strict`, and
 `test-cq` before relying on it. Do not hardcode an agent cache path.
 
@@ -70,28 +70,28 @@ python3 kg/kg.py --kg kg refresh-source <source-path> \
    changed. Updating only the manifest hash can conceal stale assertions.
 6. Re-run strict validation and competency tests, then inspect the graph diff.
 
-If extraction requires a schema, identity, or contradiction decision that the
-source cannot resolve, leave that source stale and report the sweep as
-`PARTIAL` or `BLOCKED` with the exact decision required.
+If the source cannot resolve a required schema, identity, or contradiction
+decision, leave the source stale. Report the sweep as `PARTIAL` or `BLOCKED` and
+state the exact decision required.
 
 ## Apply the completion gate
 
 - **No graph:** report graph integration as not applicable.
-- **Graph unaffected:** permit `COMPLETE` when no changed documentation source
-  is tracked by the manifest.
+- **Graph unaffected:** permit `COMPLETE` when the manifest tracks no changed
+  documentation source.
 - **Healthy baseline:** permit `COMPLETE` only when every changed tracked source
-  was refreshed, strict validation has zero errors and warnings, and competency
-  tests pass.
+  has a successful refresh, strict validation has zero errors and warnings, and
+  competency tests pass.
 - **Unhealthy baseline:** permit `COMPLETE WITH PRE-EXISTING GRAPH DEBT` only
-  when every changed tracked source was refreshed, none remains stale, no new
-  error or warning was introduced, competency coverage did not regress, and
-  unrelated assertions remain intact. Report before-and-after counts and keep
-  the graph itself labelled `NOT VALID`.
+  when every changed tracked source has a successful refresh and none remains
+  stale. Do not introduce a new error or warning. Do not reduce competency
+  coverage. Keep unrelated assertions intact. Report before-and-after counts
+  and keep the graph itself labelled `NOT VALID`.
 - **Refresh unavailable or unverified:** report `PARTIAL` or `BLOCKED`, never
-  `COMPLETE`. State the missing skill, CLI, permission, evidence, or decision;
-  make graph remediation the next action rather than merely suggesting diff
+  `COMPLETE`. State the missing skill, CLI, permission, evidence, or decision.
+  Make graph remediation the next action rather than merely suggesting diff
   review.
 
 An explicit user instruction to exclude graph mutation narrows the delivered
-scope; report that exclusion and any resulting stale tracked sources. Never
+scope. Report that exclusion and any resulting stale tracked sources. Never
 silently treat exclusion as successful graph synchronization.

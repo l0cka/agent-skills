@@ -13,10 +13,10 @@ identifiers are not required for a private project graph.
 
 Choose the smallest interface that serves the audience:
 
-- downloadable dumps for reproducible snapshots;
-- node lookups for entity-centric access;
-- edge-pattern access for simple traversal;
-- graph-pattern queries for complex joins;
+- downloadable dumps for reproducible snapshots.
+- node lookups for entity-centric access.
+- edge-pattern access for simple traversal.
+- graph-pattern queries for complex joins.
 - a static human-readable export for review.
 
 Document rate, stability, version, and freshness expectations when an interface
@@ -35,5 +35,5 @@ connected graphs. Use access controls or avoid publication where risk remains.
 ## Source
 
 Paraphrased from Aidan Hogan et al., *Knowledge Graphs* (Morgan & Claypool,
-2021), Chapter 9, which covers FAIR and Linked Data principles, access
+2021), Chapter 9. The chapter covers FAIR and Linked Data principles, access
 protocols, licensing, usage policies, encryption, and anonymization.

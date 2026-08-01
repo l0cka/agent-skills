@@ -21,15 +21,15 @@ extending the published framework.
 2. Define the risk target: price variance, standard deviation, tracking error,
    factor exposure, value at risk, or another mandate-specific loss measure.
 3. State the return interval, annualization convention, execution horizon, and
-   whether overnight or auction risk is included.
+   the inclusion of overnight or auction risk.
 4. For baskets, model signed covariance across residual positions. Opposite-side
    trades can hedge or amplify risk depending on the covariance structure.
 
 ## Estimate Inputs
 
-Compare a simple historical estimator with at least one adaptive or structured
-alternative, such as exponentially weighted volatility, a conditional
-volatility model, shrinkage covariance, or a factor model.
+Compare a simple historical estimator with an adaptive or structured alternative.
+Use exponentially weighted volatility, a conditional volatility model, shrinkage
+covariance, or a factor model as candidates.
 
 Use only information available at the estimate time. Check missing prices,
 stale instruments, asynchronous closes, corporate actions, degrees of freedom,

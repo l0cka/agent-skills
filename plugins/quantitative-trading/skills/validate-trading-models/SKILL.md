@@ -41,16 +41,16 @@ breaks, and sensitivity tests.
 
 ## Diagnose
 
-- check leakage, duplicate economic events, target contamination, and survivorship;
-- assess calibration as well as discrimination for probability outputs;
-- examine residuals, tails, heteroskedasticity, autocorrelation, and subgroup bias;
-- report parameter or feature stability across windows;
-- stress missing, stale, extreme, and out-of-domain inputs;
+- check leakage, duplicate economic events, target contamination, and survivorship.
+- assess calibration as well as discrimination for probability outputs.
+- examine residuals, tails, heteroskedasticity, autocorrelation, and subgroup bias.
+- report parameter or feature stability across windows.
+- stress missing, stale, extreme, and out-of-domain inputs.
 - distinguish predictive accuracy from economic value and execution feasibility.
 
 ## Deliver
 
-Provide the intended decision, data lineage, split design, baseline, candidate
-models, metric definitions, uncertainty, final holdout results, subgroup and
-stress results, reproducibility artifacts, failure conditions, and a deployment
-or rejection recommendation. Never tune on the final holdout.
+Provide the intended decision, data lineage, split design, baseline, and
+candidate models. Define metrics and uncertainty. Report final holdout, subgroup,
+and stress results. Include reproducibility artifacts, failure conditions, and a
+deployment or rejection recommendation. Never tune on the final holdout.

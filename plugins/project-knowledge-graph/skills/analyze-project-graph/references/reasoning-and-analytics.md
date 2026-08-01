@@ -15,10 +15,10 @@ source citation to an inferred edge as though the source asserted it.
 Induction generalizes from observed patterns and can be wrong. Treat outputs as
 candidates with a method and confidence rationale:
 
-- degree or PageRank identifies structurally central nodes;
-- community detection finds dense topological clusters;
-- shared neighbours suggest possible relatedness, missing links, or duplicates;
-- type and relation signatures suggest possible classifications;
+- degree or PageRank identifies structurally central nodes.
+- community detection finds dense topological clusters.
+- shared neighbours suggest possible relatedness, missing links, or duplicates.
+- type and relation signatures suggest possible classifications.
 - learned rules or embeddings, if used externally, predict plausibility rather
   than truth.
 
@@ -29,11 +29,11 @@ because it is better represented, not because it is more important.
 
 For each finding, include:
 
-1. result class: asserted, entailed, or candidate;
-2. graph hash and scope;
-3. method or rule;
-4. relevant source provenance for asserted premises;
-5. coverage or quality limitations;
+1. result class: asserted, entailed, or candidate.
+2. graph hash and scope.
+3. method or rule.
+4. relevant source provenance for asserted premises.
+5. coverage or quality limitations.
 6. verification action for candidates.
 
 ## Source

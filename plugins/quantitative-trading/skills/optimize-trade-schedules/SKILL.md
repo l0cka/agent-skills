@@ -51,7 +51,7 @@ if the new solution is infeasible or late.
 
 ## Deliver
 
-Provide the mathematical objective in plain language, inputs and timestamps,
-constraints, baseline, solver and convergence evidence, frontier or sensitivity
-results, proposed schedule, reoptimization policy, stress results, and a
-simulation or shadow-run gate before any live use.
+Provide the mathematical objective in plain language. List inputs and timestamps,
+constraints, baseline, solver, and convergence evidence. Report frontier or
+sensitivity results, the proposed schedule, reoptimization policy, and stress
+results. Run a simulation or shadow-run gate before live use.

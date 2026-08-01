@@ -14,7 +14,7 @@ variables to graph terms.
 ## Optional and negative conditions
 
 Use optional patterns when a missing field should not remove the entity from
-results. Use anti-joins only for a bounded absence question; under open-world
+results. Use anti-joins only for a bounded absence question. Under open-world
 semantics, failure to match is generally unknown rather than false.
 
 ```bash
@@ -34,8 +34,8 @@ kg.py query "?x depends_on+ component:database"
 kg.py path component:web component:database --directed
 ```
 
-Use search, context, and navigation as a sequence: resolve the intended entity,
-inspect its sourced neighbourhood, then traverse the relation relevant to the
+Use search, context, and navigation as a sequence. Resolve the intended entity.
+Inspect its sourced neighbourhood. Traverse the relation relevant to the
 question.
 
 ## Source

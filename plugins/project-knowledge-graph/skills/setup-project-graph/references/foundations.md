@@ -6,15 +6,15 @@ core should be.
 ## Conceptual basis
 
 A project knowledge graph is a graph of project data intended to accumulate and
-convey knowledge. Nodes represent entities of continuing interest; edges
+convey knowledge. Nodes represent entities of continuing interest. Edges
 represent relations between them. Schema, identity, context, provenance, and
 limited reasoning turn a data graph into a knowledge graph.
 
 The graph abstraction is useful when:
 
-- sources are diverse, incomplete, or expected to evolve;
-- relationships and paths matter as much as individual records;
-- stable identity must survive labels, locations, or ownership changing;
+- sources are diverse, incomplete, or expected to evolve.
+- relationships and paths matter as much as individual records.
+- stable identity must survive labels, locations, or ownership changing.
 - agents need bounded retrieval with inspectable evidence.
 
 Prefer another representation when the task is a single flat table, a short
@@ -38,8 +38,8 @@ needed to answer it.
 ## Source boundary
 
 Classify candidate inputs as canonical, supporting, observational, or excluded.
-Record incomplete source coverage honestly. A manifest of ingested files is not
-proof that the whole project is represented.
+Record incomplete source coverage honestly. The manifest does not prove full
+project coverage.
 
 Keep durable source facts distinct from runtime observations. Observations need
 an absolute timestamp, a freshness limit, and a deliberate ingestion decision.

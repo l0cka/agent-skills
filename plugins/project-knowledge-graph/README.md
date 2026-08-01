@@ -1,3 +1,5 @@
+![Project Knowledge Graph logo](assets/logo.png)
+
 # Project Knowledge Graph plugin
 
 An installable Codex and Claude Code plugin for governed, provenance-backed
@@ -14,10 +16,10 @@ The plugin bundles:
   - `validate-project-graph`
   - `refine-project-graph`
   - `publish-project-graph`
-- six read-only MCP tools for bounded graph retrieval;
+- six read-only MCP tools for bounded graph retrieval.
 - dual-era MCP support for handshake-based clients and the stateless
-  `2026-07-28` protocol;
-- a `SessionStart` hook that injects a compact, freshness-aware graph brief;
+  `2026-07-28` protocol.
+- a `SessionStart` hook that injects a compact, freshness-aware graph brief.
 - the dependency-free `kg.py` JSONL graph engine.
 
 Project graphs remain committed under each project’s `kg/` directory. The plugin
@@ -33,13 +35,13 @@ remote service, or provide MCP mutation tools.
 - `kg_query`
 - `kg_path`
 
-Every result includes the graph hash and bounded output. Node and matching edge
-provenance are included where applicable. Use `kg_context` before citing a
-relationship.
+Every result includes the graph hash and bounded output. Each result includes
+node and matching edge provenance when applicable. Use `kg_context` before
+citing a relationship.
 
 The dependency-free stdio server supports both legacy `initialize` clients and
-modern per-request metadata. Modern clients can probe with `server/discover`;
-tool catalogs are deterministic and include public cache hints.
+modern per-request metadata. Modern clients can probe with `server/discover`.
+Tool catalogs are deterministic and include public cache hints.
 
 ## Conceptual basis
 
@@ -47,7 +49,7 @@ The skill suite is a task-oriented synthesis of Aidan Hogan et al.,
 *Knowledge Graphs* (Morgan & Claypool, 2021). It follows the book's progression
 from graph models, schema, identity, context, and reasoning through creation,
 quality assessment, refinement, and publication. The bundled references are
-original paraphrases adapted to governed project memory; the textbook itself is
+original paraphrases adapted to governed project memory. The textbook itself is
 not redistributed.
 
 ## Development verification

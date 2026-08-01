@@ -3,8 +3,8 @@
 ## Data graph
 
 Use nodes for entities and typed edges for relations. A property graph style is
-appropriate here because JSONL edge objects can carry provenance and other
-context while queries continue to match `from`, `rel`, and `to`.
+appropriate here. JSONL edge objects can carry provenance and other context.
+Queries can still match `from`, `rel`, and `to`.
 
 Multiple patterns sharing variables form joins. This means modelling choices
 should support stable joins: identities belong in IDs, human wording belongs in
@@ -16,10 +16,10 @@ labels and aliases.
   subtype, subproperty, domain, range, inverse, symmetry, and transitivity.
 - **Validating schema:** declares minimum shapes, datatypes, cardinalities, and
   evidence requirements.
-- **Emergent schema:** summarizes vocabulary actually found in the graph so
-  drift can be reviewed.
+- **Emergent schema:** summarizes vocabulary actually found in the graph. Review
+  the result for drift.
 
-Semantic rules infer; shapes report violations. Do not confuse either with proof
+Semantic rules infer. Shapes report violations. Do not confuse either with proof
 that the represented sources are complete.
 
 ## Identity
@@ -28,9 +28,8 @@ Mint local IDs once and never reuse them. Keep one canonical node per entity.
 Store alternate surface forms as aliases. Equal stable keys such as canonical
 paths or URLs are merge candidates, not automatic proof of identity.
 
-Use placeholder nodes sparingly and mark them explicitly. If the only known fact
-is that some unknown entity exists, a placeholder may be justified; otherwise
-record a gap.
+Use placeholder nodes sparingly and mark them explicitly. Use one only when the
+only known fact is that an unknown entity exists. Otherwise record a gap.
 
 ## Context and provenance
 

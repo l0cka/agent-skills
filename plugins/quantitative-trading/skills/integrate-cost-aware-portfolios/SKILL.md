@@ -32,8 +32,8 @@ trade size. Use scenario or piecewise approximations when the true cost curve is
 nonlinear, and verify that any approximation preserves ranking and feasibility.
 
 Trace a net-benefit or cost-adjusted frontier across risk aversion, turnover,
-capital, and holding horizon. Report which trades are driven by alpha, risk,
-cash, constraints, or cost.
+capital, and holding horizon. Classify each trade by alpha, risk, cash,
+constraints, or cost.
 
 Measure capacity by increasing capital or turnover under consistent alpha,
 liquidity, and impact assumptions. Stress crowded liquidation, volume shortfall,
@@ -47,7 +47,7 @@ reserve a final period for the combined decision.
 
 ## Deliver
 
-Provide gross and net expected benefit, cost and risk decomposition, no-trade
-comparison, retained and rejected trades, capacity and liquidation scenarios,
-sensitivity to cost-model error, constraints, uncertainty, and a reversible
-paper or shadow implementation plan.
+Provide gross and net expected benefit. Include cost and risk decomposition, a
+no-trade comparison, retained and rejected trades, and capacity scenarios. Report
+liquidation scenarios, sensitivity to cost-model error, constraints, and
+uncertainty. Add a reversible paper or shadow implementation plan.

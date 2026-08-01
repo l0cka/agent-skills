@@ -26,17 +26,17 @@ for example, needs a documented priority rather than an implicit compromise.
 | Participation-weighted price | The mandate is tied to observable market volume | Ignoring the order's contribution to reported volume |
 
 Keep benchmark performance separate from absolute profit and loss. A good
-execution can lose money after an adverse market move, and a poor execution can
+execution can lose money after an adverse market move. A poor execution can
 benefit from a favorable one.
 
 ## 3. Select the objective
 
 Use one primary objective and explicit secondary constraints:
 
-- minimize expected implementation cost;
-- minimize residual timing risk subject to a cost budget;
-- minimize cost subject to a risk or completion constraint;
-- balance expected cost and risk using a documented risk-aversion parameter;
+- minimize expected implementation cost.
+- minimize residual timing risk subject to a cost budget.
+- minimize cost subject to a risk or completion constraint.
+- balance expected cost and risk using a documented risk-aversion parameter.
 - seek price improvement within a completion and loss bound.
 
 Never reuse a vendor's risk-aversion number without its scale and units. Map it
@@ -51,12 +51,12 @@ limit prices, and urgency may change.
 
 For adaptation, record:
 
-- observed inputs and freshness requirements;
-- trigger and release thresholds;
-- minimum and maximum participation or trading rate;
-- how price opportunity and adverse momentum are distinguished;
-- whether the strategy may slow below its original rate;
-- cooldown, re-entry, and maximum number of changes;
+- observed inputs and freshness requirements.
+- trigger and release thresholds.
+- minimum and maximum participation or trading rate.
+- how to distinguish price opportunity and adverse momentum.
+- whether the strategy may slow below its original rate.
+- cooldown, re-entry, and maximum number of changes.
 - behavior when forecasts, quotes, or venue state are unavailable.
 
 Evaluate an adaptation against the information available when it fired, not the

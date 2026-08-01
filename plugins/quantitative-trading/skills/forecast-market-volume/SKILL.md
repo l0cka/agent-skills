@@ -21,8 +21,8 @@ citing or extending the published framework.
 2. Decide whether the target is full-session volume, interval volume, cumulative
    fraction, or remaining volume.
 3. Preserve timestamps for trades, corrections, auctions, and late reports.
-   Define how own-order prints, off-market trades, and venue duplication are
-   handled.
+   Define the treatment of own-order prints, off-market trades, and venue
+   duplication.
 4. Identify half-days, holidays, rolls, index events, earnings, outages, and
    structural venue changes before selecting history.
 
@@ -48,6 +48,6 @@ breach a participation cap.
 
 ## Deliver
 
-Provide the target and information timestamp, data construction, baseline,
-candidate model, temporal split, accuracy by horizon and regime, prediction
+Provide the target, information timestamp, data construction, baseline, candidate
+model, and temporal split. Report accuracy by horizon and regime, prediction
 range, exception calendar, own-order treatment, and downstream stress cases.

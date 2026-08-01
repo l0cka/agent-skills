@@ -11,9 +11,9 @@ identity changes.
 
 ## Invariants
 
-- Mint IDs once as `type:slug`; change labels and aliases, not IDs.
+- Mint IDs once as `type:slug`. Change labels and aliases, not IDs.
 - Distinguish an entity from a document about it.
-- Keep scalar values in `props`; create nodes for named, recurrent,
+- Keep scalar values in `props`. Create nodes for named, recurrent,
   cross-source referents.
 - Require `sources` on nodes and one exact `source` on every edge.
 - Treat assertion identity as `(from, relation, to, source, anchor)`.
