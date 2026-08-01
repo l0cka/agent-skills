@@ -1,0 +1,4 @@
+interface:
+  display_name: "Simplified Technical English"
+  short_description: "Apply ASD-STE100 to human-facing docs"
+  default_prompt: "Use $apply-simplified-technical-english to revise this human-facing documentation to ASD-STE100 Simplified Technical English."

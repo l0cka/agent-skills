@@ -1,4 +1,0 @@
-interface:
-  display_name: "Docs Sweep"
-  short_description: "Refresh documentation across a whole project"
-  default_prompt: "Use $docs-sweep to update this project's documentation and synchronize any affected project graph sources."

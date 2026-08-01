@@ -1,0 +1,20 @@
+{
+  "name": "technical-documentation",
+  "version": "0.2.0",
+  "description": "Audit project documentation, apply ASD-STE100 Simplified Technical English, and synchronize existing graph sources.",
+  "author": {
+    "name": "l0cka",
+    "url": "https://github.com/l0cka"
+  },
+  "homepage": "https://github.com/l0cka/agent-skills/tree/main/plugins/technical-documentation",
+  "repository": "https://github.com/l0cka/agent-skills",
+  "keywords": [
+    "documentation",
+    "docs",
+    "maintenance",
+    "asd-ste100",
+    "simplified-technical-english",
+    "knowledge-graph"
+  ],
+  "skills": "./skills/"
+}

@@ -10,6 +10,7 @@ import unittest
 
 PLUGIN_ROOT = Path(__file__).resolve().parents[1]
 SKILL_ROOT = PLUGIN_ROOT / "skills" / "docs-sweep"
+STE_ROOT = PLUGIN_ROOT / "skills" / "apply-simplified-technical-english"
 SKILL_TEXT = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
 GRAPH_TEXT = (
     SKILL_ROOT / "references" / "project-graph-integration.md"
@@ -52,7 +53,28 @@ class DocsSweepContractTest(unittest.TestCase):
                 PLUGIN_ROOT / ".claude-plugin" / "plugin.json",
             )
         }
-        self.assertEqual(versions, {"0.1.1"})
+        self.assertEqual(versions, {"0.2.0"})
+
+    def test_simplified_technical_english_is_a_completion_gate(self):
+        normalized = " ".join(SKILL_TEXT.split())
+        self.assertIn(
+            "technical-documentation:apply-simplified-technical-english",
+            SKILL_TEXT,
+        )
+        self.assertIn("`apply-simplified-technical-english`", SKILL_TEXT)
+        self.assertIn("Either gate can prevent a complete sweep", normalized)
+        self.assertIn("Do not claim ASD-STE100 certification", normalized)
+
+    def test_standard_has_provenance_without_redistributed_pdf(self):
+        reference = (
+            STE_ROOT / "references" / "asd-ste100-issue-9.md"
+        ).read_text(encoding="utf-8")
+        self.assertIn("Issue 9, 15 January 2025", reference)
+        self.assertIn(
+            "40d66f0cea84d1fff67f36d560c04eab4034c6bcf64014d43bd6d4c19795f3f0",
+            reference,
+        )
+        self.assertEqual(list(STE_ROOT.rglob("*.pdf")), [])
 
 
 if __name__ == "__main__":

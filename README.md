@@ -16,10 +16,12 @@ agent-skills/
 ├── .agents/plugins/marketplace.json
 ├── .claude-plugin/marketplace.json
 ├── plugins/
-│   ├── docs-sweep/
+│   ├── technical-documentation/
 │   │   ├── .codex-plugin/plugin.json
 │   │   ├── .claude-plugin/plugin.json
-│   │   └── skills/docs-sweep/
+│   │   └── skills/
+│   │       ├── docs-sweep/
+│   │       └── apply-simplified-technical-english/
 │   ├── project-knowledge-graph/
 │   │   ├── .codex-plugin/plugin.json
 │   │   ├── .claude-plugin/plugin.json
@@ -60,45 +62,54 @@ This validates every `SKILL.md` and runs bundled `test_*.py` suites.
 
 ## Install as a plugin
 
-Add this repository as a marketplace and install the plugin independently in
-each client:
+Add this repository as a marketplace. Install the plugin independently in each
+client:
 
 ```bash
 codex plugin marketplace add l0cka/agent-skills
-codex plugin add docs-sweep@l0cka-agent-skills
+codex plugin add technical-documentation@l0cka-agent-skills
 codex plugin add project-knowledge-graph@l0cka-agent-skills
 codex plugin add quantitative-trading@l0cka-agent-skills
 
 claude plugin marketplace add l0cka/agent-skills
-claude plugin install docs-sweep@l0cka-agent-skills --scope user
+claude plugin install technical-documentation@l0cka-agent-skills --scope user
 claude plugin install project-knowledge-graph@l0cka-agent-skills --scope user
 claude plugin install quantitative-trading@l0cka-agent-skills --scope user
 ```
 
-Docs Sweep supplies one project-wide workflow that inventories documentation,
-reconciles it against repository evidence, validates the changes, and refreshes
-changed documentation sources already tracked by an existing Project Knowledge
-Graph. A blocked or unverified graph refresh prevents a complete result. Invoke
-the standalone skill as `/docs-sweep` in Claude Code or `$docs-sweep` in Codex;
-Claude Code namespaces the marketplace-plugin form as `/docs-sweep:docs-sweep`.
+Technical Documentation supplies the `docs-sweep` project-wide maintenance
+workflow and a focused ASD-STE100 Simplified Technical English workflow. The
+main sweep inventories documentation and reconciles it against repository
+evidence. It applies STE
+Issue 9 to human-facing prose and validates the changes. It also refreshes
+changed sources that an existing Project Knowledge Graph tracks. An incomplete
+STE gate or a blocked graph refresh prevents a complete result.
+
+Invoke the main skill as
+`/docs-sweep` in Claude Code or `$docs-sweep` in Codex. Invoke the focused skill
+as `/apply-simplified-technical-english` or
+`$apply-simplified-technical-english`. Claude Code namespaces the plugin forms
+as `/technical-documentation:docs-sweep` and
+`/technical-documentation:apply-simplified-technical-english`.
 
 The knowledge-graph plugin supplies eight focused skills, a read-only local MCP
 server, and a bounded `SessionStart` graph brief. The quantitative-trading
-plugin supplies a governing router plus eight focused workflows for execution
-design, transaction costs, market impact, model validation, volume, execution
-risk, schedule optimization, and cost-aware portfolios. Its published-method
-provenance is explicit, and optional QuantEcon references remain commit-pinned.
+plugin supplies a governing router and eight focused workflows. These workflows
+cover execution design, transaction costs, market impact, model validation,
+volume, execution risk, schedule optimization, and cost-aware portfolios. Its
+published-method provenance is explicit. Optional QuantEcon references remain
+commit-pinned.
 
 Update installed releases with:
 
 ```bash
 codex plugin marketplace upgrade l0cka-agent-skills
-codex plugin add docs-sweep@l0cka-agent-skills
+codex plugin add technical-documentation@l0cka-agent-skills
 codex plugin add project-knowledge-graph@l0cka-agent-skills
 codex plugin add quantitative-trading@l0cka-agent-skills
 
 claude plugin marketplace update l0cka-agent-skills
-claude plugin update docs-sweep@l0cka-agent-skills
+claude plugin update technical-documentation@l0cka-agent-skills
 claude plugin update project-knowledge-graph@l0cka-agent-skills
 claude plugin update quantitative-trading@l0cka-agent-skills
 ```
@@ -119,10 +130,12 @@ python3 scripts/sync_skills.py --apply
 
 The sync refuses to overwrite an existing directory or a link to another
 source. Resolve that conflict deliberately, then rerun. Use this route only for
-clients that cannot install the plugin. Plugin installs are preferred because
+clients that cannot install the plugin. Prefer plugin installs because
 standalone skills do not include MCP tools or hooks.
 
-For another machine, clone this repository there and run the same validation and sync commands. Git is the cross-machine transport; agent discovery directories are deployment targets, not source repositories.
+For another machine, clone this repository there and run the same validation
+and sync commands. Git is the cross-machine transport. Agent discovery
+directories are deployment targets, not source repositories.
 
 ```bash
 git clone https://github.com/l0cka/agent-skills.git

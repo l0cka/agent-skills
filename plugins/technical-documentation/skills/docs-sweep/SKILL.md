@@ -1,6 +1,6 @@
 ---
 name: docs-sweep
-description: Audit and update project-wide documentation against current repository evidence, and keep changed documentation sources synchronized with an existing project knowledge graph. Use when a user invokes /docs-sweep, /docs-sweep:docs-sweep, or $docs-sweep; asks to refresh all docs after code or configuration changes; repairs stale READMEs, guides, examples, setup steps, API or CLI references; or checks documentation coverage across a repository. When an existing graph tracks changed docs, require a source-scoped graph refresh or report the sweep as incomplete.
+description: Audit and update project-wide documentation against current repository evidence, apply ASD-STE100 Simplified Technical English to human-facing prose, and keep changed documentation sources synchronized with an existing project knowledge graph. Use when a user invokes /docs-sweep, /technical-documentation:docs-sweep, or $docs-sweep; asks to refresh all docs after code or configuration changes; repairs stale READMEs, guides, examples, setup steps, API or CLI references; or checks documentation coverage across a repository. Require the STE language gate for human-facing docs and a source-scoped graph refresh when an existing graph tracks changed docs, or report the sweep as incomplete.
 ---
 
 # Docs Sweep
@@ -14,13 +14,16 @@ with its current code, configuration, tests, and operating instructions.
 - Follow repository instructions and preserve unrelated or in-progress changes.
 - Limit edits to documentation, documentation examples, and the templates or
   generators that own generated documentation. Report product defects instead
-  of changing product behaviour merely to make an inaccurate document true.
+  of changing product behavior merely to make an inaccurate document true.
 - Treat refresh of changed graph-tracked documentation as part of completion.
-  If it cannot be refreshed safely, preserve the docs work but report the sweep
+  If you cannot refresh it safely, preserve the docs work but report the sweep
   as `PARTIAL` or `BLOCKED`, never complete.
+- Apply ASD-STE100 Issue 9 to all in-scope human-facing prose. If the STE manual
+  gate is incomplete or a material language issue remains unresolved, preserve
+  safe edits but report the sweep as `PARTIAL` or `BLOCKED`.
 - Do not commit, push, publish, or alter release history unless explicitly
   requested.
-- Finish the update and proportionate verification; do not stop after listing
+- Finish the update and proportionate verification. Do not stop after you list
   stale files.
 
 ## Workflow
@@ -42,21 +45,24 @@ with its current code, configuration, tests, and operating instructions.
 Prefer `git ls-files` in a Git project and `rg --files` otherwise. Inventory at
 least:
 
-- root `README*` files and the `docs/` tree;
-- setup, deployment, operations, security, support, and contribution guides;
-- user-facing examples, tutorials, API or CLI references, and configuration or
-  environment-variable documentation;
-- current release notes or an unreleased changelog section; preserve historical
-  release records;
-- documentation templates, generators, and doc-validation configuration.
+- Root `README*` files and the `docs/` tree.
+- Setup, deployment, operations, security, support, and contribution guides.
+- User-facing examples, tutorials, API or CLI references, and configuration or
+  environment-variable documentation.
+- Current release notes or an unreleased changelog section. Preserve historical
+  release records.
+- Documentation templates, generators, and doc-validation configuration.
 
-For each surface, identify its authoritative repository evidence: manifests,
-configuration schemas, executable entry points, CLI help, routes and public
-interfaces, tests, workflows, deployment configuration, or accepted decisions.
-Track `surface | evidence | status | action | validation` while working.
+Identify authoritative repository evidence for each surface. Evidence can
+include manifests, schemas, entry points, CLI help, public interfaces, tests,
+workflows, deployment configuration, or accepted decisions. Track
+`surface | evidence | status | action | validation` while you work.
 
-If a file declares that it is generated, edit its source and run the supported
-generator. Do not hand-edit generated output.
+If a file identifies its generator, edit the source and run that generator. Do
+not hand-edit generated output.
+
+Classify each human-facing surface as procedural, descriptive, safety, note,
+quoted, or machine-facing for the Simplified Technical English review.
 
 ### 3. Establish the graph baseline
 
@@ -65,8 +71,8 @@ If the project contains `kg/manifest.json`, read
 editing. Capture baseline graph health and identify inventory documents already
 tracked by the manifest.
 
-Use an installed Project Knowledge Graph plugin when available, but do not
-require it when the project's own `kg/kg.py` provides the required operations.
+Use an installed Project Knowledge Graph plugin when available. The project's
+own `kg/kg.py` is sufficient when it provides the required operations.
 Do not mistake a read-only graph MCP server for absence of write-capable graph
 skills or CLI tooling.
 
@@ -75,6 +81,10 @@ graph as a side effect of a documentation sweep.
 
 ### 4. Reconcile the documentation
 
+Load `technical-documentation:apply-simplified-technical-english` for a plugin
+install or `apply-simplified-technical-english` for a standalone install. Read
+its bundled Issue 9 reference before changing human-facing prose.
+
 1. Update primary sources before summaries or derivative guides.
 2. Correct stale commands, paths, versions, options, defaults, prerequisites,
    architecture descriptions, links, and examples only when repository or
@@ -82,9 +92,10 @@ graph as a side effect of a documentation sweep.
 3. Keep terminology and cross-references consistent across the full inventory.
 4. Create a new document only for a material coverage gap with a clear audience
    and authoritative source. Prefer improving an existing canonical document.
-5. Preserve local voice, structure, accessibility, and deliberate historical
-   context. Avoid mass reformatting or unrelated copy-editing.
-6. When code and documentation conflict and the intended behaviour is unclear,
+5. Apply ASD-STE100 to explanatory prose, instructions, notes, and safety text.
+   Preserve code, commands, identifiers, quoted text, legal wording, local
+   structure, accessibility, and deliberate historical context.
+6. When code and documentation conflict and the intended behavior is unclear,
    leave the disputed claim unchanged or qualify it, and report the exact gap.
 
 ### 5. Refresh the affected graph sources
@@ -108,19 +119,24 @@ repair unrelated pre-existing graph debt merely to make the docs sweep green.
    coupled to schemas, generated output, or executable examples.
 4. Run `git diff --check`, inspect the complete diff, and reread every changed
    document for contradictions, broken navigation, or unintended churn.
-5. Apply the graph completion status defined in the graph integration reference.
+5. Run the Simplified Technical English checker with the correct text mode and
+   complete its manual dictionary, terminology, meaning, and safety gate.
+6. Apply both the STE completion status and the graph completion status. Either
+   gate can prevent a complete sweep.
 
 ## Completion report
 
 State:
 
-- overall status: `COMPLETE`, `COMPLETE WITH PRE-EXISTING GRAPH DEBT`,
-  `PARTIAL`, or `BLOCKED`;
-- documentation surfaces changed and what now matches;
-- validation commands and results;
-- graph baseline, changed tracked sources, refresh actions, and post-refresh
-  delta, or that no project graph or affected tracked source existed;
-- material gaps, ambiguous claims, or checks that could not run.
+- Overall status: `COMPLETE`, `COMPLETE WITH PRE-EXISTING GRAPH DEBT`,
+  `PARTIAL`, or `BLOCKED`.
+- Documentation surfaces changed and what now matches.
+- Validation commands and results.
+- STE status, text types reviewed, checker result, manual checks, and exceptions.
+- Graph baseline, changed tracked sources, refresh actions, and post-refresh
+  delta, or that no project graph or affected tracked source existed.
+- Material gaps, ambiguous claims, or checks that could not run.
 
-Do not claim that all documentation is current unless the inventory was covered
-and the relevant documentation and graph gates completed.
+Claim that all documentation is current only after the sweep covers the full
+inventory. The documentation, STE, and graph gates must also be complete. Do
+not claim ASD-STE100 certification from this workflow.

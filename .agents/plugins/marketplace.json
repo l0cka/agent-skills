@@ -29,10 +29,10 @@
       "category": "Productivity"
     },
     {
-      "name": "docs-sweep",
+      "name": "technical-documentation",
       "source": {
         "source": "local",
-        "path": "./plugins/docs-sweep"
+        "path": "./plugins/technical-documentation"
       },
       "policy": {
         "installation": "AVAILABLE",

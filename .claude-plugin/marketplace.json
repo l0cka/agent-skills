@@ -35,14 +35,16 @@
       ]
     },
     {
-      "name": "docs-sweep",
-      "source": "./plugins/docs-sweep",
-      "description": "Project-wide documentation maintenance with fail-closed existing-graph synchronization.",
-      "version": "0.1.1",
+      "name": "technical-documentation",
+      "source": "./plugins/technical-documentation",
+      "description": "Technical documentation workflows for project sweeps, ASD-STE100, and existing-graph synchronization.",
+      "version": "0.2.0",
       "category": "Productivity",
       "tags": [
         "documentation",
         "maintenance",
+        "asd-ste100",
+        "simplified-technical-english",
         "knowledge-graph"
       ]
     }
