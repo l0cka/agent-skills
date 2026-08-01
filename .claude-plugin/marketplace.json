@@ -37,8 +37,8 @@
     {
       "name": "docs-sweep",
       "source": "./plugins/docs-sweep",
-      "description": "Project-wide documentation maintenance with optional knowledge graph integration.",
-      "version": "0.1.0",
+      "description": "Project-wide documentation maintenance with fail-closed existing-graph synchronization.",
+      "version": "0.1.1",
       "category": "Productivity",
       "tags": [
         "documentation",

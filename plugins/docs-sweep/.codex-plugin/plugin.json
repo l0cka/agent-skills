@@ -1,7 +1,7 @@
 {
   "name": "docs-sweep",
-  "version": "0.1.0",
-  "description": "Audit and update documentation across an entire project, with optional Project Knowledge Graph integration.",
+  "version": "0.1.1",
+  "description": "Audit and update project-wide documentation, synchronizing affected sources in an existing Project Knowledge Graph.",
   "author": {
     "name": "l0cka",
     "url": "https://github.com/l0cka"
@@ -18,7 +18,7 @@
   "interface": {
     "displayName": "Docs Sweep",
     "shortDescription": "Refresh documentation across a whole project.",
-    "longDescription": "Audit and update project-wide documentation against current repository evidence, validate the result, and use an existing project knowledge graph when available.",
+    "longDescription": "Audit and update project-wide documentation against current repository evidence, validate the result, and synchronize affected sources in an existing project knowledge graph with a fail-closed completion gate.",
     "developerName": "l0cka",
     "category": "Productivity",
     "capabilities": [

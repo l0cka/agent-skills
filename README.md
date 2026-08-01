@@ -76,11 +76,11 @@ claude plugin install quantitative-trading@l0cka-agent-skills --scope user
 ```
 
 Docs Sweep supplies one project-wide workflow that inventories documentation,
-reconciles it against repository evidence, validates the changes, and uses an
-existing Project Knowledge Graph when available without requiring it. Invoke
-the standalone skill as `/docs-sweep` in Claude Code or `$docs-sweep` in Codex.
-Claude Code namespaces the marketplace-plugin form as
-`/docs-sweep:docs-sweep`.
+reconciles it against repository evidence, validates the changes, and refreshes
+changed documentation sources already tracked by an existing Project Knowledge
+Graph. A blocked or unverified graph refresh prevents a complete result. Invoke
+the standalone skill as `/docs-sweep` in Claude Code or `$docs-sweep` in Codex;
+Claude Code namespaces the marketplace-plugin form as `/docs-sweep:docs-sweep`.
 
 The knowledge-graph plugin supplies eight focused skills, a read-only local MCP
 server, and a bounded `SessionStart` graph brief. The quantitative-trading

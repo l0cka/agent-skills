@@ -207,10 +207,10 @@
     },
     {
       "name": "docs-sweep",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/docs-sweep",
       "plugin": "plugins/docs-sweep",
-      "plugin_version": "0.1.0",
+      "plugin_version": "0.1.1",
       "targets": [
         "codex",
         "claude-code"

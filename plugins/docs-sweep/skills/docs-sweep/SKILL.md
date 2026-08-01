@@ -1,6 +1,6 @@
 ---
 name: docs-sweep
-description: Audit and update project-wide documentation against current repository evidence. Use when a user invokes /docs-sweep, /docs-sweep:docs-sweep, or $docs-sweep; asks to refresh all docs after code or configuration changes; repairs stale READMEs, guides, examples, setup steps, API or CLI references; or checks documentation coverage across a repository. Integrate with an existing Project Knowledge Graph installation when present without requiring it.
+description: Audit and update project-wide documentation against current repository evidence, and keep changed documentation sources synchronized with an existing project knowledge graph. Use when a user invokes /docs-sweep, /docs-sweep:docs-sweep, or $docs-sweep; asks to refresh all docs after code or configuration changes; repairs stale READMEs, guides, examples, setup steps, API or CLI references; or checks documentation coverage across a repository. When an existing graph tracks changed docs, require a source-scoped graph refresh or report the sweep as incomplete.
 ---
 
 # Docs Sweep
@@ -15,6 +15,9 @@ with its current code, configuration, tests, and operating instructions.
 - Limit edits to documentation, documentation examples, and the templates or
   generators that own generated documentation. Report product defects instead
   of changing product behaviour merely to make an inaccurate document true.
+- Treat refresh of changed graph-tracked documentation as part of completion.
+  If it cannot be refreshed safely, preserve the docs work but report the sweep
+  as `PARTIAL` or `BLOCKED`, never complete.
 - Do not commit, push, publish, or alter release history unless explicitly
   requested.
 - Finish the update and proportionate verification; do not stop after listing
@@ -55,15 +58,20 @@ Track `surface | evidence | status | action | validation` while working.
 If a file declares that it is generated, edit its source and run the supported
 generator. Do not hand-edit generated output.
 
-### 3. Use an existing project graph when available
+### 3. Establish the graph baseline
 
-If the project contains `kg/manifest.json` or the Project Knowledge Graph skills
-or `kg_*` tools are available, read
-[project-graph-integration.md](references/project-graph-integration.md) and
-follow its optional integration path.
+If the project contains `kg/manifest.json`, read
+[project-graph-integration.md](references/project-graph-integration.md) before
+editing. Capture baseline graph health and identify inventory documents already
+tracked by the manifest.
 
-Continue normally when the graph plugin or a project graph is absent. Never
-initialize a graph as a side effect of a documentation sweep.
+Use an installed Project Knowledge Graph plugin when available, but do not
+require it when the project's own `kg/kg.py` provides the required operations.
+Do not mistake a read-only graph MCP server for absence of write-capable graph
+skills or CLI tooling.
+
+When no project graph exists, continue without graph work. Never initialize a
+graph as a side effect of a documentation sweep.
 
 ### 4. Reconcile the documentation
 
@@ -79,7 +87,17 @@ initialize a graph as a side effect of a documentation sweep.
 6. When code and documentation conflict and the intended behaviour is unclear,
    leave the disputed claim unchanged or qualify it, and report the exact gap.
 
-### 5. Verify the sweep
+### 5. Refresh the affected graph sources
+
+After the documentation diff is stable, follow the source-scoped refresh and
+baseline-delta rules in
+[project-graph-integration.md](references/project-graph-integration.md).
+
+Do not report `COMPLETE` while any changed graph-tracked document remains stale,
+its refresh was not applied, or post-refresh verification is unknown. Do not
+repair unrelated pre-existing graph debt merely to make the docs sweep green.
+
+### 6. Verify the sweep
 
 1. Run repository-provided documentation format, build, link, spelling, and
    example checks that are safe and relevant.
@@ -90,18 +108,19 @@ initialize a graph as a side effect of a documentation sweep.
    coupled to schemas, generated output, or executable examples.
 4. Run `git diff --check`, inspect the complete diff, and reread every changed
    document for contradictions, broken navigation, or unintended churn.
-5. If an existing graph was refreshed, require strict graph validation and its
-   competency tests to pass before calling that refresh healthy.
+5. Apply the graph completion status defined in the graph integration reference.
 
 ## Completion report
 
 State:
 
+- overall status: `COMPLETE`, `COMPLETE WITH PRE-EXISTING GRAPH DEBT`,
+  `PARTIAL`, or `BLOCKED`;
 - documentation surfaces changed and what now matches;
 - validation commands and results;
-- material gaps, ambiguous claims, or checks that could not run;
-- graph queries or refreshes performed, or that graph integration was not
-  applicable.
+- graph baseline, changed tracked sources, refresh actions, and post-refresh
+  delta, or that no project graph or affected tracked source existed;
+- material gaps, ambiguous claims, or checks that could not run.
 
 Do not claim that all documentation is current unless the inventory was covered
-and the relevant checks completed.
+and the relevant documentation and graph gates completed.
