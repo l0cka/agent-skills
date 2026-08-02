@@ -1,4 +1,6 @@
-<img src="assets/logo.png" alt="Agent skills logo" width="160">
+<p align="center">
+  <img src="assets/logo.png" alt="Agent skills logo" width="160">
+</p>
 
 # Agent skills and plugins
 

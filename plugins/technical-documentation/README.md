@@ -1,4 +1,6 @@
-<img src="assets/logo.png" alt="Technical Documentation logo" width="160">
+<p align="center">
+  <img src="assets/logo.png" alt="Technical Documentation logo" width="160">
+</p>
 
 # Technical Documentation plugin
 

@@ -1,4 +1,6 @@
-<img src="assets/logo.png" alt="Quantitative Trading logo" width="160">
+<p align="center">
+  <img src="assets/logo.png" alt="Quantitative Trading logo" width="160">
+</p>
 
 # Quantitative Trading plugin
 

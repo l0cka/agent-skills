@@ -1,4 +1,6 @@
-<img src="assets/logo.png" alt="Project Knowledge Graph logo" width="160">
+<p align="center">
+  <img src="assets/logo.png" alt="Project Knowledge Graph logo" width="160">
+</p>
 
 # Project Knowledge Graph plugin
 
