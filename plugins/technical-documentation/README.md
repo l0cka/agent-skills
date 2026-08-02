@@ -1,4 +1,4 @@
-![Technical Documentation logo](assets/logo.png)
+<img src="assets/logo.png" alt="Technical Documentation logo" width="160">
 
 # Technical Documentation plugin
 

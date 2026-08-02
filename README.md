@@ -1,4 +1,4 @@
-![Agent skills logo](assets/logo.png)
+<img src="assets/logo.png" alt="Agent skills logo" width="160">
 
 # Agent skills and plugins
 
