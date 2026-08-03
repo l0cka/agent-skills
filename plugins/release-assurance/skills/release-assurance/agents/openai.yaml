@@ -1,0 +1,4 @@
+interface:
+  display_name: "Release Assurance"
+  short_description: "Govern release gates from plan to verification."
+  default_prompt: "Use $release-assurance to govern this release from plan through verified publication."

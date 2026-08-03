@@ -43,10 +43,17 @@ agent-skills/
 │   │   ├── hooks/
 │   │   ├── .mcp.json
 │   │   └── mcp/
-│   └── quantitative-trading/
+│   ├── quantitative-trading/
+│   │   ├── .codex-plugin/plugin.json
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── skills/              # router plus eight focused workflows
+│   │   ├── references/
+│   │   ├── scripts/
+│   │   └── tests/
+│   └── release-assurance/
 │       ├── .codex-plugin/plugin.json
 │       ├── .claude-plugin/plugin.json
-│       ├── skills/              # router plus eight focused workflows
+│       ├── skills/              # router plus four focused workflows
 │       ├── references/
 │       ├── scripts/
 │       └── tests/
@@ -60,7 +67,7 @@ agent-skills/
 
 ## Brand assets
 
-Each package has a square PNG logo.
+Current brand assets:
 
 - Repository: [assets/logo.png](assets/logo.png)
 - Project Knowledge Graph: [plugins/project-knowledge-graph/assets/logo.png](plugins/project-knowledge-graph/assets/logo.png)
@@ -85,11 +92,13 @@ codex plugin marketplace add l0cka/agent-skills
 codex plugin add technical-documentation@l0cka-agent-skills
 codex plugin add project-knowledge-graph@l0cka-agent-skills
 codex plugin add quantitative-trading@l0cka-agent-skills
+codex plugin add release-assurance@l0cka-agent-skills
 
 claude plugin marketplace add l0cka/agent-skills
 claude plugin install technical-documentation@l0cka-agent-skills --scope user
 claude plugin install project-knowledge-graph@l0cka-agent-skills --scope user
 claude plugin install quantitative-trading@l0cka-agent-skills --scope user
+claude plugin install release-assurance@l0cka-agent-skills --scope user
 ```
 
 The Technical Documentation plugin supplies the `docs-sweep` project-wide
@@ -115,6 +124,13 @@ volume, execution risk, schedule optimization, and cost-aware portfolios. Its
 published-method provenance is explicit. Optional QuantEcon references remain
 commit-pinned.
 
+The Release Assurance plugin supplies a governing router and four focused
+workflows. It fixes release scope and gates, verifies the exact candidate and
+built artifact, publishes only with scoped authority, proves each destination
+from the consumer side, and retires superseded projects without treating
+archival as deletion. Its offline preflight helper checks Git state, local tag
+collisions, and supported version metadata without publishing anything.
+
 To update installed releases, run:
 
 ```bash
@@ -122,11 +138,13 @@ codex plugin marketplace upgrade l0cka-agent-skills
 codex plugin add technical-documentation@l0cka-agent-skills
 codex plugin add project-knowledge-graph@l0cka-agent-skills
 codex plugin add quantitative-trading@l0cka-agent-skills
+codex plugin add release-assurance@l0cka-agent-skills
 
 claude plugin marketplace update l0cka-agent-skills
 claude plugin update technical-documentation@l0cka-agent-skills
 claude plugin update project-knowledge-graph@l0cka-agent-skills
 claude plugin update quantitative-trading@l0cka-agent-skills
+claude plugin update release-assurance@l0cka-agent-skills
 ```
 
 ## Standalone skill compatibility

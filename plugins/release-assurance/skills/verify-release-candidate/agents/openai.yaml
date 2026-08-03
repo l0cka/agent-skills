@@ -1,0 +1,4 @@
+interface:
+  display_name: "Verify Release Candidate"
+  short_description: "Prove a candidate is publishable before release."
+  default_prompt: "Use $verify-release-candidate to decide whether this candidate is ready to publish."

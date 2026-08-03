@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publish Release"
+  short_description: "Publish with authority and verify every destination."
+  default_prompt: "Use $publish-release to publish this approved release and verify every destination."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Archive Superseded Project"
+  short_description: "Retire superseded projects without losing evidence."
+  default_prompt: "Use $archive-superseded-project to plan and verify this project retirement safely."

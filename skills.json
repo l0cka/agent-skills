@@ -228,6 +228,66 @@
         "claude-code"
       ],
       "source": "Based on ASD-STE100 Simplified Technical English, Issue 9 (ASD STEMG, 2025), Part 1 writing rules. The standard and controlled dictionary are not redistributed."
+    },
+    {
+      "name": "release-assurance",
+      "version": "1.0.0",
+      "path": "skills/release-assurance",
+      "plugin": "plugins/release-assurance",
+      "plugin_version": "0.1.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Original evidence-gated software release workflow by l0cka."
+    },
+    {
+      "name": "plan-release",
+      "version": "1.0.0",
+      "path": "skills/plan-release",
+      "plugin": "plugins/release-assurance",
+      "plugin_version": "0.1.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Original bounded release-planning workflow by l0cka."
+    },
+    {
+      "name": "verify-release-candidate",
+      "version": "1.0.0",
+      "path": "skills/verify-release-candidate",
+      "plugin": "plugins/release-assurance",
+      "plugin_version": "0.1.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Original release-candidate and artifact verification workflow by l0cka."
+    },
+    {
+      "name": "publish-release",
+      "version": "1.0.0",
+      "path": "skills/publish-release",
+      "plugin": "plugins/release-assurance",
+      "plugin_version": "0.1.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Original authority-bound publication and consumer-verification workflow by l0cka."
+    },
+    {
+      "name": "archive-superseded-project",
+      "version": "1.0.0",
+      "path": "skills/archive-superseded-project",
+      "plugin": "plugins/release-assurance",
+      "plugin_version": "0.1.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Original provenance-preserving project retirement workflow by l0cka."
     }
   ]
 }

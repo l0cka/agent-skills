@@ -1,0 +1,38 @@
+{
+  "name": "release-assurance",
+  "version": "0.1.0",
+  "description": "Plan, verify, publish, and retire software releases with explicit gates and post-release evidence.",
+  "author": {
+    "name": "l0cka",
+    "url": "https://github.com/l0cka"
+  },
+  "homepage": "https://github.com/l0cka/agent-skills/tree/main/plugins/release-assurance",
+  "repository": "https://github.com/l0cka/agent-skills",
+  "keywords": [
+    "release",
+    "release-engineering",
+    "assurance",
+    "package-publishing",
+    "verification",
+    "archival"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Release Assurance",
+    "shortDescription": "Gate releases and verify published artifacts.",
+    "longDescription": "Plan bounded releases, verify candidates and built artifacts, publish only with explicit authority, prove each destination from the consumer side, and retire superseded projects without losing provenance or recovery paths.",
+    "developerName": "l0cka",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/l0cka/agent-skills",
+    "defaultPrompt": [
+      "Plan a bounded release with explicit gates.",
+      "Verify this candidate before publication.",
+      "Publish this approved release and prove it works."
+    ],
+    "brandColor": "#7C3AED"
+  }
+}

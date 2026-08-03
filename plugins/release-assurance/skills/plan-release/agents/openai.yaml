@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Release"
+  short_description: "Define version, scope, gates, and rollback evidence."
+  default_prompt: "Use $plan-release to turn this change set into a bounded release plan."

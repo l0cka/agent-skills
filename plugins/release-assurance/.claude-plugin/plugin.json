@@ -1,0 +1,20 @@
+{
+  "name": "release-assurance",
+  "version": "0.1.0",
+  "description": "Plan, verify, publish, and retire software releases with explicit gates and post-release evidence.",
+  "author": {
+    "name": "l0cka",
+    "url": "https://github.com/l0cka"
+  },
+  "homepage": "https://github.com/l0cka/agent-skills/tree/main/plugins/release-assurance",
+  "repository": "https://github.com/l0cka/agent-skills",
+  "keywords": [
+    "release",
+    "release-engineering",
+    "assurance",
+    "package-publishing",
+    "verification",
+    "archival"
+  ],
+  "skills": "./skills/"
+}
