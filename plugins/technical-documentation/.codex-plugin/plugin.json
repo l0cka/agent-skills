@@ -1,7 +1,7 @@
 {
   "name": "technical-documentation",
-  "version": "0.2.0",
-  "description": "Audit project documentation, apply ASD-STE100 Simplified Technical English, and synchronize existing graph sources.",
+  "version": "0.3.0",
+  "description": "Review project documentation and technical debt, gate changes on approval, and maintain evidence-backed technical prose.",
   "author": {
     "name": "l0cka",
     "url": "https://github.com/l0cka"
@@ -12,6 +12,9 @@
     "documentation",
     "docs",
     "maintenance",
+    "technical-debt",
+    "project-review",
+    "approval-gate",
     "asd-ste100",
     "simplified-technical-english",
     "knowledge-graph"
@@ -19,8 +22,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Technical Documentation",
-    "shortDescription": "Sweep docs and apply ASD-STE100.",
-    "longDescription": "Audit and update project-wide documentation against repository evidence, apply ASD-STE100 Simplified Technical English to human-facing prose, and synchronize affected sources in an existing project knowledge graph with fail-closed completion gates.",
+    "shortDescription": "Review project debt and maintain accurate docs.",
+    "longDescription": "Review stale documentation and evidence-backed technical debt, propose bounded changes, wait for explicit approval, then apply and verify approved work. Also supports ASD-STE100 prose and existing project graph synchronization.",
     "developerName": "l0cka",
     "category": "Productivity",
     "capabilities": [
@@ -29,10 +32,9 @@
     ],
     "websiteURL": "https://github.com/l0cka/agent-skills",
     "defaultPrompt": [
+      "Review this project for stale docs and technical debt, then wait for approval.",
       "Bring every project document in sync with the code.",
-      "Apply ASD-STE100 Simplified Technical English to these docs.",
-      "Find and fix stale setup, API, and operations docs.",
-      "Sweep the docs and refresh the existing project graph."
+      "Apply ASD-STE100 Simplified Technical English to these docs."
     ],
     "brandColor": "#2563EB"
   }

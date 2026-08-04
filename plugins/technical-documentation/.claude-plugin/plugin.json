@@ -1,7 +1,7 @@
 {
   "name": "technical-documentation",
-  "version": "0.2.0",
-  "description": "Audit project documentation, apply ASD-STE100 Simplified Technical English, and synchronize existing graph sources.",
+  "version": "0.3.0",
+  "description": "Review project documentation and technical debt, gate changes on approval, and maintain evidence-backed technical prose.",
   "author": {
     "name": "l0cka",
     "url": "https://github.com/l0cka"
@@ -12,6 +12,9 @@
     "documentation",
     "docs",
     "maintenance",
+    "technical-debt",
+    "project-review",
+    "approval-gate",
     "asd-ste100",
     "simplified-technical-english",
     "knowledge-graph"

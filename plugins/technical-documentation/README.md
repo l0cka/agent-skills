@@ -4,12 +4,14 @@
 
 # Technical Documentation plugin
 
-Use this plugin to keep human-facing project documentation aligned with
-repository evidence.
+Use this plugin to review project maintenance needs before editing and to keep
+human-facing documentation aligned with repository evidence.
 
 ## Skills
 
 - `docs-sweep`: Audit and update documentation across a whole project.
+- `review-project-maintenance`: Review stale documentation and technical debt,
+  propose bounded changes, and apply only the items that the user approves.
 - `apply-simplified-technical-english`: Apply ASD-STE100 Issue 9 to technical
   prose while preserving code, identifiers, quotations, and required legal
   text.
@@ -26,6 +28,11 @@ Invoke the main skill as `$docs-sweep` in Codex or
 Invoke the language skill as `$apply-simplified-technical-english` in Codex or
 `/technical-documentation:apply-simplified-technical-english` in Claude Code.
 
+Invoke the approval-gated review as `$review-project-maintenance` in Codex or
+`/technical-documentation:review-project-maintenance` in Claude Code. The first
+phase is read-only. Reply with `Approve ALL` or the proposal IDs to authorize
+the second phase.
+
 ## Verify the plugin
 
 Run these commands from the repository root:
@@ -33,5 +40,6 @@ Run these commands from the repository root:
 ```bash
 python3 scripts/validate_skills.py
 python3 plugins/technical-documentation/tests/test_docs_sweep.py -v
+python3 plugins/technical-documentation/tests/test_project_maintenance_review.py -v
 python3 plugins/technical-documentation/tests/test_ste_checker.py -v
 ```

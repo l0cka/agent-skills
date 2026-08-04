@@ -210,7 +210,7 @@
       "version": "1.2.0",
       "path": "skills/docs-sweep",
       "plugin": "plugins/technical-documentation",
-      "plugin_version": "0.2.0",
+      "plugin_version": "0.3.0",
       "targets": [
         "codex",
         "claude-code"
@@ -218,11 +218,23 @@
       "source": "Original project-wide documentation maintenance workflow by l0cka."
     },
     {
+      "name": "review-project-maintenance",
+      "version": "1.0.0",
+      "path": "skills/review-project-maintenance",
+      "plugin": "plugins/technical-documentation",
+      "plugin_version": "0.3.0",
+      "targets": [
+        "codex",
+        "claude-code"
+      ],
+      "source": "Original approval-gated project documentation and technical-debt review workflow by l0cka."
+    },
+    {
       "name": "apply-simplified-technical-english",
       "version": "1.0.0",
       "path": "skills/apply-simplified-technical-english",
       "plugin": "plugins/technical-documentation",
-      "plugin_version": "0.2.0",
+      "plugin_version": "0.3.0",
       "targets": [
         "codex",
         "claude-code"

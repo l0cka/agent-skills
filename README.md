@@ -27,6 +27,7 @@ agent-skills/
 │   │   ├── .claude-plugin/plugin.json
 │   │   └── skills/
 │   │       ├── docs-sweep/
+│   │       ├── review-project-maintenance/
 │   │       └── apply-simplified-technical-english/
 │   ├── project-knowledge-graph/
 │   │   ├── .codex-plugin/plugin.json
@@ -101,20 +102,20 @@ claude plugin install quantitative-trading@l0cka-agent-skills --scope user
 claude plugin install release-assurance@l0cka-agent-skills --scope user
 ```
 
-The Technical Documentation plugin supplies the `docs-sweep` project-wide
-maintenance workflow and a focused ASD-STE100 Simplified Technical English
-workflow. The main sweep inventories documentation and reconciles it against
-repository evidence. It applies STE Issue 9 to human-facing prose and validates
-the changes. It also refreshes changed sources that an existing Project
-Knowledge Graph tracks. An incomplete STE gate or a blocked graph refresh
-prevents a complete result.
+The Technical Documentation plugin supplies an approval-gated project
+maintenance review, the `docs-sweep` project-wide documentation workflow, and
+a focused ASD-STE100 Simplified Technical English workflow. The maintenance
+review finds evidence-backed stale documentation and technical debt. It
+presents bounded proposal IDs and does not edit until the user approves `ALL`
+or named IDs. The documentation sweep applies STE Issue 9. It also refreshes
+changed sources that an existing Project Knowledge Graph tracks. An incomplete
+STE gate or a blocked graph refresh prevents a complete documentation result.
 
-Invoke the main skill as
-`/docs-sweep` in Claude Code or `$docs-sweep` in Codex. Invoke the focused skill
-as `/apply-simplified-technical-english` or
+Invoke the approval-gated review as `/review-project-maintenance` in Claude
+Code or `$review-project-maintenance` in Codex. Invoke the documentation skills
+as `/docs-sweep`, `$docs-sweep`, `/apply-simplified-technical-english`, or
 `$apply-simplified-technical-english`. Claude Code namespaces the plugin forms
-as `/technical-documentation:docs-sweep` and
-`/technical-documentation:apply-simplified-technical-english`.
+under `/technical-documentation:`.
 
 The knowledge-graph plugin supplies eight focused skills, a read-only local MCP
 server, and a bounded `SessionStart` graph brief. The quantitative-trading

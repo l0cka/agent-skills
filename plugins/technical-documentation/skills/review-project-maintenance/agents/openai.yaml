@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Project Maintenance"
+  short_description: "Review docs and debt before approved fixes."
+  default_prompt: "Use $review-project-maintenance to audit this project and wait for my approval before applying fixes."
