@@ -51,12 +51,17 @@ agent-skills/
 │   │   ├── references/
 │   │   ├── scripts/
 │   │   └── tests/
-│   └── release-assurance/
+│   ├── release-assurance/
+│   │   ├── .codex-plugin/plugin.json
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── skills/              # router plus four focused workflows
+│   │   ├── references/
+│   │   ├── scripts/
+│   │   └── tests/
+│   └── executive-dysfunction/
 │       ├── .codex-plugin/plugin.json
 │       ├── .claude-plugin/plugin.json
-│       ├── skills/              # router plus four focused workflows
-│       ├── references/
-│       ├── scripts/
+│       ├── skills/executive-dysfunction/
 │       └── tests/
 ├── skills/                  # compatibility symlinks
 ├── scripts/
@@ -94,12 +99,14 @@ codex plugin add technical-documentation@l0cka-agent-skills
 codex plugin add project-knowledge-graph@l0cka-agent-skills
 codex plugin add quantitative-trading@l0cka-agent-skills
 codex plugin add release-assurance@l0cka-agent-skills
+codex plugin add executive-dysfunction@l0cka-agent-skills
 
 claude plugin marketplace add l0cka/agent-skills
 claude plugin install technical-documentation@l0cka-agent-skills --scope user
 claude plugin install project-knowledge-graph@l0cka-agent-skills --scope user
 claude plugin install quantitative-trading@l0cka-agent-skills --scope user
 claude plugin install release-assurance@l0cka-agent-skills --scope user
+claude plugin install executive-dysfunction@l0cka-agent-skills --scope user
 ```
 
 The Technical Documentation plugin supplies an approval-gated project
@@ -132,6 +139,12 @@ from the consumer side, and retires superseded projects without treating
 archival as deletion. Its offline preflight helper checks Git state, local tag
 collisions, and supported version metadata without publishing anything.
 
+The Executive Dysfunction plugin provides evidence-informed support for task
+initiation, planning, prioritisation, time awareness, working memory, attention,
+completion, and recovery from overwhelm. It selects one bottleneck and helps
+execute one consent-preserving next action. It does not diagnose ADHD, provide
+medication advice, or create persistent monitoring without permission.
+
 To update installed releases, run:
 
 ```bash
@@ -140,12 +153,14 @@ codex plugin add technical-documentation@l0cka-agent-skills
 codex plugin add project-knowledge-graph@l0cka-agent-skills
 codex plugin add quantitative-trading@l0cka-agent-skills
 codex plugin add release-assurance@l0cka-agent-skills
+codex plugin add executive-dysfunction@l0cka-agent-skills
 
 claude plugin marketplace update l0cka-agent-skills
 claude plugin update technical-documentation@l0cka-agent-skills
 claude plugin update project-knowledge-graph@l0cka-agent-skills
 claude plugin update quantitative-trading@l0cka-agent-skills
 claude plugin update release-assurance@l0cka-agent-skills
+claude plugin update executive-dysfunction@l0cka-agent-skills
 ```
 
 ## Standalone skill compatibility

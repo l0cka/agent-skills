@@ -1,0 +1,4 @@
+interface:
+  display_name: "Executive Dysfunction"
+  short_description: "Turn overwhelm or stalled work into one doable next action"
+  default_prompt: "Help me move this task forward with low-friction executive-function support."

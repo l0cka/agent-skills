@@ -63,6 +63,20 @@
         "verification",
         "archival"
       ]
+    },
+    {
+      "name": "executive-dysfunction",
+      "source": "./plugins/executive-dysfunction",
+      "description": "Evidence-informed, consent-preserving support for ADHD-related executive-function bottlenecks.",
+      "version": "0.1.0",
+      "category": "Productivity",
+      "tags": [
+        "adhd",
+        "executive-function",
+        "planning",
+        "task-initiation",
+        "accessibility"
+      ]
     }
   ]
 }

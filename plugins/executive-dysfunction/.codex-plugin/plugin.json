@@ -1,0 +1,23 @@
+{
+  "name": "executive-dysfunction",
+  "version": "0.1.0",
+  "description": "Evidence-informed, consent-preserving executive-function support for ADHD-related task initiation, planning, time awareness, and completion.",
+  "author": {
+    "name": "l0cka"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Executive Dysfunction",
+    "shortDescription": "Turn stalled work into one doable next action.",
+    "longDescription": "Identifies one executive-function bottleneck, externalises the work state, and helps execute a low-friction next action without diagnosis, shame, or unapproved monitoring.",
+    "developerName": "l0cka",
+    "category": "Productivity",
+    "capabilities": [
+      "task initiation",
+      "planning and prioritisation",
+      "time and working-memory support",
+      "completion and recovery"
+    ],
+    "defaultPrompt": "Help me move this task forward with low-friction executive-function support."
+  }
+}
