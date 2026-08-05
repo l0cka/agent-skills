@@ -11,7 +11,7 @@
       "name": "project-knowledge-graph",
       "source": "./plugins/project-knowledge-graph",
       "description": "Eight governed workflows for provenance-backed project knowledge graphs.",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "category": "Productivity",
       "tags": [
         "knowledge-graph",
@@ -23,7 +23,7 @@
       "name": "quantitative-trading",
       "source": "./plugins/quantitative-trading",
       "description": "Nine evidence-led workflows for trading research, execution, transaction costs, impact, risk, optimization, and portfolios.",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "category": "Productivity",
       "tags": [
         "quantitative-trading",
@@ -38,7 +38,7 @@
       "name": "technical-documentation",
       "source": "./plugins/technical-documentation",
       "description": "Approval-gated project maintenance reviews plus documentation, ASD-STE100, and graph synchronization workflows.",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "category": "Productivity",
       "tags": [
         "documentation",
@@ -55,7 +55,7 @@
       "name": "release-assurance",
       "source": "./plugins/release-assurance",
       "description": "Five evidence-gated workflows for release planning, candidate verification, publication, consumer checks, and safe archival.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "Productivity",
       "tags": [
         "release-engineering",

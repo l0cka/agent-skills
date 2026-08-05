@@ -1,6 +1,6 @@
 {
   "name": "release-assurance",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Plan, verify, publish, and retire software releases with explicit gates and post-release evidence.",
   "author": {
     "name": "l0cka",

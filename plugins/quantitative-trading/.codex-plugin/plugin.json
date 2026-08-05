@@ -1,6 +1,6 @@
 {
   "name": "quantitative-trading",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Nine evidence-led workflows for trading research, execution, transaction costs, impact, risk, optimization, and portfolios.",
   "author": {
     "name": "l0cka",

@@ -1,6 +1,6 @@
 {
   "name": "technical-documentation",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Review project documentation and technical debt, gate changes on approval, and maintain evidence-backed technical prose.",
   "author": {
     "name": "l0cka",
