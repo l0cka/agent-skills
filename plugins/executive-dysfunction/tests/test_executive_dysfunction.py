@@ -48,6 +48,22 @@ class ExecutiveDysfunctionContractTests(unittest.TestCase):
         )
         self.assertRegex(SKILL_TEXT.lower(), r"(do not|never).*dump.*(tips|strategies|advice)")
 
+    def test_prioritisation_has_low_load_intake_and_a_tie_breaker(self):
+        self.assertContainsAll(
+            SKILL_TEXT,
+            (
+                "paste the list unchanged",
+                "at most one follow-up",
+                "imminent irreversible consequence",
+                "hard deadline",
+                "blocking another person",
+                "effort as the final tie-breaker",
+                "one **Now**",
+                "up to two **Next**",
+                "Parked",
+            ),
+        )
+
     def test_skill_defines_a_proactive_but_consent_preserving_loop(self):
         self.assertContainsAll(
             SKILL_TEXT,
@@ -64,6 +80,23 @@ class ExecutiveDysfunctionContractTests(unittest.TestCase):
         )
         self.assertRegex(SKILL_TEXT.lower(), r"(do the work|act for the user).*when.*(possible|authorised)")
 
+    def test_progress_and_check_ins_are_truthful_and_bounded(self):
+        self.assertContainsAll(
+            SKILL_TEXT,
+            (
+                "Prepared",
+                "Ready",
+                "do not imply that the user completed",
+                "cannot know whether the user has finished",
+                "user reports",
+                "maximum duration",
+                "maximum number of check-ins",
+                "stop at any time",
+                "after silence",
+                "cancel",
+            ),
+        )
+
     def test_skill_preserves_safety_autonomy_and_dignity(self):
         self.assertContainsAll(
             SKILL_TEXT,
@@ -79,6 +112,17 @@ class ExecutiveDysfunctionContractTests(unittest.TestCase):
         )
         self.assertNotIn("just try harder", SKILL_TEXT.lower())
 
+    def test_medication_questions_include_an_already_taken_branch(self):
+        self.assertContainsAll(
+            SKILL_TEXT,
+            (
+                "already taken",
+                "local poison information service",
+                "emergency care",
+                "severe symptoms",
+            ),
+        )
+
     def test_evidence_base_exists_and_labels_strength(self):
         self.assertTrue(EVIDENCE_PATH.is_file())
         evidence = EVIDENCE_PATH.read_text(encoding="utf-8")
@@ -92,6 +136,8 @@ class ExecutiveDysfunctionContractTests(unittest.TestCase):
                 "body doubling",
                 "limited direct evidence",
                 "coaching",
+                "preliminary or suggestive evidence",
+                "efficacy and safety remain uncertain",
                 "NICE",
                 "Australian ADHD Professionals Association",
                 "Cochrane",
@@ -107,6 +153,8 @@ class ExecutiveDysfunctionContractTests(unittest.TestCase):
             "https://pubmed.ncbi.nlm.nih.gov/20736471/",
             "https://pubmed.ncbi.nlm.nih.gov/20231319/",
             "https://pubmed.ncbi.nlm.nih.gov/28504540/",
+            "https://pubmed.ncbi.nlm.nih.gov/19276311/",
+            "https://pubmed.ncbi.nlm.nih.gov/41538184/",
         ):
             with self.subTest(url=url):
                 self.assertIn(url, evidence)

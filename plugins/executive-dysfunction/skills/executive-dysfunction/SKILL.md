@@ -51,7 +51,7 @@ Select the smallest bottleneck that prevents movement. State it tentatively in o
 | **Completion** | Work stalls near handoff or “done” keeps moving | Write the completion condition, remove optional polish, perform the final check, and close or hand off the task. |
 | **Emotional overload** | Shame, dread, perfectionism, or threat response blocks ordinary action | Acknowledge the load once, reduce stakes, and choose a safe reversible action. Do not argue with the emotion. |
 
-For prioritisation, if the tasks are not visible, ask the user to paste the list unchanged. Do not require them to sort, score, or explain it first.
+For prioritisation, if the tasks are not visible, ask the user to paste the list unchanged. Do not require them to sort, score, or explain it first. Ask at most one follow-up about a hard deadline or who is blocked. Break ties in this order: imminent irreversible consequence, hard deadline, blocking another person or task, then effort as the final tie-breaker. Return one **Now**, up to two **Next**, and put the rest in **Parked**.
 
 When fatigue, sleep, pain, medication effects, anxiety, depression, burnout, or another condition may be the main issue, do not force a productivity intervention. Ask whether practical help, rest, or professional support is the better next step.
 
@@ -125,7 +125,9 @@ After action:
 
 Examples: “The email draft now has the request and deadline. Send it as written, or change the tone?” “Step 1 of 3 is done. Next: attach the document.”
 
-If the user asked for a working session and the platform supports it, agree on the check-back interval. Do not nag after silence and do not schedule follow-ups without consent.
+When only preparation has occurred, label the status **Prepared** or **Ready**, not completed progress. Do not imply that the user completed a real-world action that only the user can perform.
+
+If the user asked for a working session and the platform supports it, state that the agent is not continuously observing and cannot know whether the user has finished except through user reports. Before scheduling, agree on the interval, maximum duration, maximum number of check-ins, and an explicit stop word or stop time. Consent remains revocable: the user can stop at any time. Cancel remaining check-ins after silence. Do not call check-ins “monitoring” unless the platform actually provides an authorised observation capability. Never promise autonomous check-ins unless a tool has created them.
 
 ## Planning mode
 
@@ -155,6 +157,7 @@ Do not create an overloaded “catch-up day.” Protect sleep, meals, medication
 
 - Do not diagnose ADHD or any other condition.
 - Do not recommend medication changes, skipped doses, extra doses, supplements, or self-medication. Direct medication questions to a qualified prescriber or pharmacist.
+- If the user is considering an extra dose, do not advise on dosing. If the user has already taken more than prescribed, may have taken an accidental overdose, or has severe symptoms, direct them promptly to their local poison information service or emergency care. Do not wait for symptoms before seeking poison-service advice; use emergency services for severe symptoms.
 - This skill is not a substitute for professional care. Suggest a qualified clinician when impairment is persistent, severe, worsening, or spans multiple life domains.
 - For urgent safety concerns, self-harm, harm to others, abuse, psychosis, mania, severe substance risk, or inability to meet basic needs, stop the productivity workflow and follow the applicable urgent safety process.
 - For high-stakes medical, legal, financial, employment, or safety decisions, apply the relevant domain safeguards and confirmation requirements.
@@ -168,7 +171,7 @@ Default response shape:
 ```text
 <one recommended next action>
 
-Progress: <where the user is>
+Status: <Progress, Prepared, or Ready—match what actually happened>
 Why this step: <one sentence tied to the bottleneck>
 After that: <one next step, only if useful>
 ```

@@ -36,7 +36,7 @@ Use these as intervention components, not guarantees for an individual.
 Offer these as reversible experiments. Do not describe them as established ADHD treatments.
 
 - **Body doubling:** widely used in ADHD communities, but there is limited direct evidence that isolates body doubling as an intervention. Offer it only when the user prefers social presence or accountability.
-- **ADHD coaching:** studies and case reports are promising, but the evidence base is smaller and methodologically weaker than the CBT literature. An AI can borrow collaborative goal-setting and accountability patterns without claiming to provide credentialed coaching. [8]
+- **ADHD coaching:** there is preliminary or suggestive evidence, mostly from uncontrolled, self-reported, or observational work. Efficacy and safety remain uncertain, and randomized trials are needed. An AI can borrow collaborative goal-setting patterns without claiming to provide credentialed coaching. [10][11]
 - **Implementation intentions, focus timers, immediate rewards, and visual task boards:** these draw on broader behavioural and self-regulation principles. ADHD-specific effects vary, so test one method against the user's experience.
 - **Named productivity systems:** Pomodoro, priority matrices, and similar systems are interfaces, not treatments. Use them only when they reduce rather than add friction.
 - **Reminders and structured support from other people:** qualitative evidence describes these as useful coping supports, but it does not establish comparative treatment effects. [9]
@@ -68,6 +68,10 @@ Offer these as reversible experiments. Do not describe them as established ADHD 
 [8] Nimmo-Smith V et al., “Effects and feasibility of psychological interventions to reduce inattention symptoms in adults with ADHD: a systematic review,” *Journal of Mental Health*, 2020. https://pubmed.ncbi.nlm.nih.gov/32954909/
 
 [9] Holthe MEG and Langvik E, “Living with symptoms of attention deficit hyperactivity disorder in adulthood: a systematic review of qualitative evidence,” *JBI Database of Systematic Reviews and Implementation Reports* 15(4), 2017, 1080–1153. https://pubmed.ncbi.nlm.nih.gov/28398986/
+
+[10] Kubik JA, “Efficacy of ADHD coaching for adults with ADHD,” *Journal of Attention Disorders* 13(5), 2010, 442–453. This uncontrolled self-report study described its results as preliminary support. https://pubmed.ncbi.nlm.nih.gov/19276311/
+
+[11] Sibley MH et al., “Demographics, Services, and Practices in Attention-Deficit/Hyperactivity Disorder Coaching in the US,” *JAMA Network Open* 9(1), 2026, e2552407. This workforce survey did not test efficacy and concluded that randomized trials are essential to establish safety and effectiveness. https://pubmed.ncbi.nlm.nih.gov/41538184/
 
 ## Evidence cautions
 
