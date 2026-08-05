@@ -300,18 +300,6 @@
         "claude-code"
       ],
       "source": "Original provenance-preserving project retirement workflow by l0cka."
-    },
-    {
-      "name": "executive-dysfunction",
-      "version": "1.0.0",
-      "path": "skills/executive-dysfunction",
-      "plugin": "plugins/executive-dysfunction",
-      "plugin_version": "0.1.0",
-      "targets": [
-        "codex",
-        "claude-code"
-      ],
-      "source": "Evidence-informed workflow synthesised from NICE NG87, the Australian ADHD guideline, and adult ADHD psychosocial intervention literature."
     }
   ]
 }
