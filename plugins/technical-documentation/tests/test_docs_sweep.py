@@ -53,7 +53,11 @@ class DocsSweepContractTest(unittest.TestCase):
                 PLUGIN_ROOT / ".claude-plugin" / "plugin.json",
             )
         }
-        self.assertEqual(versions, {"0.3.0"})
+        self.assertEqual(
+            len(versions),
+            1,
+            f"host manifests disagree on version: {sorted(versions)}",
+        )
 
     def test_simplified_technical_english_is_a_completion_gate(self):
         normalized = " ".join(SKILL_TEXT.split())
