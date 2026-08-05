@@ -246,13 +246,13 @@ def build_session_brief(root: Path) -> str:
     lines.extend(
         [
             (
-                "Use `$query-project-graph` with the read-only MCP tools for bounded "
+                "Use the `query-project-graph` skill with the read-only MCP tools for bounded "
                 "retrieval. Call `kg_context` before citing a relationship so the exact "
                 "assertion source is present."
             ),
             (
                 "Route durable changes through the setup, model, ingest, or refine "
-                "graph skills, then finish with `$validate-project-graph`."
+                "graph skills, then finish with the `validate-project-graph` skill."
             ),
             (
                 "The graph is open-world: missing assertions are unknown, not false. "

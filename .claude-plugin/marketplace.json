@@ -11,7 +11,7 @@
       "name": "project-knowledge-graph",
       "source": "./plugins/project-knowledge-graph",
       "description": "Eight governed workflows for provenance-backed project knowledge graphs.",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "category": "Productivity",
       "tags": [
         "knowledge-graph",

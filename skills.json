@@ -6,7 +6,7 @@
       "version": "1.0.0",
       "path": "skills/setup-project-graph",
       "plugin": "plugins/project-knowledge-graph",
-      "plugin_version": "0.3.1",
+      "plugin_version": "0.3.2",
       "targets": [
         "codex",
         "claude-code"
@@ -18,7 +18,7 @@
       "version": "1.0.0",
       "path": "skills/model-project-graph",
       "plugin": "plugins/project-knowledge-graph",
-      "plugin_version": "0.3.1",
+      "plugin_version": "0.3.2",
       "targets": [
         "codex",
         "claude-code"
@@ -30,7 +30,7 @@
       "version": "1.0.0",
       "path": "skills/ingest-project-graph",
       "plugin": "plugins/project-knowledge-graph",
-      "plugin_version": "0.3.1",
+      "plugin_version": "0.3.2",
       "targets": [
         "codex",
         "claude-code"
@@ -42,7 +42,7 @@
       "version": "1.0.0",
       "path": "skills/query-project-graph",
       "plugin": "plugins/project-knowledge-graph",
-      "plugin_version": "0.3.1",
+      "plugin_version": "0.3.2",
       "targets": [
         "codex",
         "claude-code"
@@ -54,7 +54,7 @@
       "version": "1.0.0",
       "path": "skills/analyze-project-graph",
       "plugin": "plugins/project-knowledge-graph",
-      "plugin_version": "0.3.1",
+      "plugin_version": "0.3.2",
       "targets": [
         "codex",
         "claude-code"
@@ -66,7 +66,7 @@
       "version": "1.0.0",
       "path": "skills/validate-project-graph",
       "plugin": "plugins/project-knowledge-graph",
-      "plugin_version": "0.3.1",
+      "plugin_version": "0.3.2",
       "targets": [
         "codex",
         "claude-code"
@@ -78,7 +78,7 @@
       "version": "1.0.0",
       "path": "skills/refine-project-graph",
       "plugin": "plugins/project-knowledge-graph",
-      "plugin_version": "0.3.1",
+      "plugin_version": "0.3.2",
       "targets": [
         "codex",
         "claude-code"
@@ -90,7 +90,7 @@
       "version": "1.0.0",
       "path": "skills/publish-project-graph",
       "plugin": "plugins/project-knowledge-graph",
-      "plugin_version": "0.3.1",
+      "plugin_version": "0.3.2",
       "targets": [
         "codex",
         "claude-code"
