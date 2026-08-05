@@ -17,7 +17,7 @@ into an authoritative assertion.
 
 ## Workflow
 
-1. Capture the current graph hash and run `$validate-project-graph`.
+1. Capture the current graph hash and run the `validate-project-graph` skill.
 2. Generate bounded candidates:
 
 ```bash

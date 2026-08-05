@@ -15,8 +15,11 @@ Read [release-gates.md](../../references/release-gates.md) and the matching sect
 2. Run:
 
 ```bash
-python3 ../../scripts/release_preflight.py <release-root> --version <version> --json
+python3 <plugin-root>/scripts/release_preflight.py <release-root> --version <version> --json
 ```
+
+`<plugin-root>` is the Release Assurance plugin directory. Under Claude Code it
+resolves to `${CLAUDE_PLUGIN_ROOT}`.
 
 3. Treat a dirty tree, inconsistent version metadata, or an existing local tag as a blocker unless the release contract explicitly explains why it is safe.
 4. Check remote tag and destination-version collisions separately; the helper is deliberately offline.

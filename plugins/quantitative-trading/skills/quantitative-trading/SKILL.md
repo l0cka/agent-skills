@@ -71,6 +71,9 @@ Profile raw JSON or JSONL without printing identifiers or secrets:
 python3 <plugin-root>/scripts/profile_jsonl.py <file>.jsonl[.gz]
 ```
 
+`<plugin-root>` is the Quantitative Trading plugin directory. Under Claude Code
+it resolves to `${CLAUDE_PLUGIN_ROOT}`.
+
 Use `--since`, `--until`, `--group-by`, and repeatable `--metric` options as
 needed. Quote its covered UTC window in the conclusion. Inspect the actual
 signal, sizing, order, fill, PnL, and guard code paths before interpreting

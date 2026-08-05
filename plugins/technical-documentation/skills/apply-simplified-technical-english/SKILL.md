@@ -54,15 +54,18 @@ Run the checker on each changed human-facing file. Select `procedural` or
 `descriptive` when a document has one type. Use `auto` for mixed Markdown:
 
 ```bash
-python3 scripts/check_ste.py --mode auto path/to/document.md
+python3 <skill-root>/scripts/check_ste.py --mode auto path/to/document.md
 ```
+
+`<skill-root>` is this skill's own directory. Under Claude Code it resolves to
+`${CLAUDE_PLUGIN_ROOT}/skills/apply-simplified-technical-english`.
 
 For repository-wide checks, pass the documentation roots. Use
 `--fail-on-warning` only when the project has reviewed the heuristic rules and
 accepts them as blocking:
 
 ```bash
-python3 scripts/check_ste.py --mode auto README.md docs/
+python3 <skill-root>/scripts/check_ste.py --mode auto README.md docs/
 ```
 
 The checker skips fenced code, indented code, Markdown tables, block quotes,

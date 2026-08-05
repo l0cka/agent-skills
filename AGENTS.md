@@ -14,6 +14,14 @@ Code skills and dual-host plugins.
 - Use the installed `plugin-creator` instructions whenever creating or
   materially revising a Codex plugin.
 - Keep `SKILL.md` concise and put detailed optional material in directly linked `references/`.
+- Place a reference beside its own skill, or at plugin level when several skills
+  share it. A skill may link a plugin-level reference as
+  `../../references/<file>.md`.
+- Install standalone skills as symlinks only. That relative link resolves through
+  the symlink, so a copied skill loses its plugin-level references.
+- Point at a bundled script with `<plugin-root>/` or `<skill-root>/`, matching
+  where the script lives. Define the placeholder against `${CLAUDE_PLUGIN_ROOT}`
+  at first use. Never write a path that assumes the working directory.
 - Require provenance and preserve upstream attribution when importing external material.
 - Never edit deployed copies under agent discovery directories as the source of truth.
 - Do not overwrite a conflicting installed skill during sync.

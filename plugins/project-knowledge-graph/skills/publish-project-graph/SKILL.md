@@ -12,7 +12,7 @@ graph beyond its current project or trust boundary.
 ## Preflight
 
 1. Define audience, purpose, allowed scope, and distribution channel.
-2. Run `$validate-project-graph`.
+2. Run the `validate-project-graph` skill.
 3. Review every included source's license, confidentiality, personal data,
    secret risk, and downstream usage restrictions.
 4. Select the minimum graph or subgraph needed. Internal provenance paths may

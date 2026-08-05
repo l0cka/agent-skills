@@ -26,18 +26,23 @@ observations.
 5. Initialize:
 
 ```bash
-python3 <skill>/scripts/kg.py --kg <project>/kg init \
+python3 <skill-root>/scripts/kg.py --kg <project>/kg init \
   --project "<name>" --profile generic
 ```
+
+`<skill-root>` is this skill's own directory. Under Claude Code it resolves to
+`${CLAUDE_PLUGIN_ROOT}/skills/setup-project-graph`.
 
 Use `--profile research` only when Experiment, Gate, Decision, Lesson, and
 Strategy lifecycles are central. `init` copies the dependency-free tool into
 `kg/kg.py`.
 
-6. Use `$model-project-graph` to curate `schema.json`. Do not accept a broad
-   default vocabulary without reviewing it against the competency questions.
-7. Use `$ingest-project-graph` to build the initial core source by source.
-8. Use `$validate-project-graph` as the completion gate.
+6. Use the `model-project-graph` skill to curate `schema.json`. Do not accept a
+   broad default vocabulary without reviewing it against the competency
+   questions.
+7. Use the `ingest-project-graph` skill to build the initial core source by
+   source.
+8. Use the `validate-project-graph` skill as the completion gate.
 
 ## Required output
 

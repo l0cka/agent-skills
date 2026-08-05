@@ -44,7 +44,7 @@ python3 kg/kg.py --kg kg dupes
 5. Explain method, scope, and uncertainty. Centrality is not importance in every
    business sense. Community membership is not ontology. Similarity is not
    identity.
-6. Route actionable candidates to `$refine-project-graph`.
+6. Route actionable candidates to the `refine-project-graph` skill.
 
 Do not write predicted edges directly. A plausible graph pattern is not source
 evidence.

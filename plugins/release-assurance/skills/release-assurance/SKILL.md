@@ -23,7 +23,7 @@ Use the narrowest skill that covers the request. For a complete release, use the
 Read [release-gates.md](../../references/release-gates.md) before making a readiness or completion claim. Read [ecosystem-checks.md](../../references/ecosystem-checks.md) for the detected package or plugin type. Read [evidence-record.md](../../references/evidence-record.md) when work spans publication or archival.
 
 1. Resolve the release subject, repository root, candidate commit, version source of truth, and intended destinations.
-2. Start read-only. Run `python3 ../../scripts/release_preflight.py <root> --version <version>` from this skill directory when a versioned candidate exists.
+2. Start read-only. Run `python3 <plugin-root>/scripts/release_preflight.py <root> --version <version>` when a versioned candidate exists. `<plugin-root>` is the Release Assurance plugin directory, which resolves to `${CLAUDE_PLUGIN_ROOT}` under Claude Code.
 3. Treat validation of the source tree and validation of the built or downloaded artifact as separate gates.
 4. Treat an explicit instruction to publish or release a named version to named destinations as authority for those actions. Ask at the mutation boundary when version, destination, or archival scope remains unclear.
 5. Verify each external destination independently. If only some destinations succeed, stop expanding scope and report a partial release with a repair path.

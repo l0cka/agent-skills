@@ -59,5 +59,5 @@ python3 kg/kg.py --kg kg refresh-source docs/architecture.md \
 Preview source removal with `remove-source PATH --dry-run`. Do not bulk append
 or manually rewrite assertion IDs.
 
-Finish with `$validate-project-graph`. A successful command is not proof that
-the extraction is complete or semantically accurate.
+Finish with the `validate-project-graph` skill. A successful command is not
+proof that the extraction is complete or semantically accurate.
