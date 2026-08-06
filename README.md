@@ -7,9 +7,10 @@
 Canonical source repository for custom skills and plugins shared by Codex and
 Claude Code.
 
-Plugin-backed skills live in one plugin. Compatibility symlinks under `skills/`
-preserve standalone installation for older clients. Marketplace installs provide
-the skill suite, MCP tools, and hooks as one versioned unit.
+Every skill lives exactly once, inside the plugin that owns it. Four plugins
+currently ship 25 skills. Compatibility symlinks under `skills/` preserve
+standalone installation for older clients. Marketplace installs provide each
+plugin's skill suite, MCP tools, and hooks as one versioned unit.
 
 Public repository: [github.com/l0cka/agent-skills](https://github.com/l0cka/agent-skills)
 
@@ -22,14 +23,17 @@ agent-skills/
 ├── .agents/plugins/marketplace.json
 ├── .claude-plugin/marketplace.json
 ├── plugins/
-│   ├── technical-documentation/
+│   ├── technical-documentation/     # 3 skills
 │   │   ├── .codex-plugin/plugin.json
 │   │   ├── .claude-plugin/plugin.json
-│   │   └── skills/
-│   │       ├── docs-sweep/
-│   │       ├── review-project-maintenance/
-│   │       └── apply-simplified-technical-english/
-│   ├── project-knowledge-graph/
+│   │   ├── skills/
+│   │   │   ├── docs-sweep/
+│   │   │   ├── review-project-maintenance/
+│   │   │   └── apply-simplified-technical-english/
+│   │   ├── assets/
+│   │   ├── tests/
+│   │   └── README.md
+│   ├── project-knowledge-graph/     # 8 skills
 │   │   ├── .codex-plugin/plugin.json
 │   │   ├── .claude-plugin/plugin.json
 │   │   ├── skills/
@@ -41,24 +45,31 @@ agent-skills/
 │   │   │   ├── validate-project-graph/
 │   │   │   ├── refine-project-graph/
 │   │   │   └── publish-project-graph/
-│   │   ├── hooks/
 │   │   ├── .mcp.json
-│   │   └── mcp/
-│   ├── quantitative-trading/
+│   │   ├── mcp/
+│   │   ├── lib/
+│   │   ├── hooks/
+│   │   ├── assets/
+│   │   ├── tests/
+│   │   └── README.md
+│   ├── quantitative-trading/        # router plus 8 focused workflows
 │   │   ├── .codex-plugin/plugin.json
 │   │   ├── .claude-plugin/plugin.json
-│   │   ├── skills/              # router plus eight focused workflows
+│   │   ├── skills/
 │   │   ├── references/
 │   │   ├── scripts/
-│   │   └── tests/
-│   └── release-assurance/
+│   │   ├── assets/
+│   │   ├── tests/
+│   │   └── README.md
+│   └── release-assurance/           # router plus 4 focused workflows
 │       ├── .codex-plugin/plugin.json
 │       ├── .claude-plugin/plugin.json
-│       ├── skills/              # router plus four focused workflows
+│       ├── skills/
 │       ├── references/
 │       ├── scripts/
-│       └── tests/
-├── skills/                  # compatibility symlinks
+│       ├── tests/
+│       └── README.md
+├── skills/                  # compatibility symlinks, one per skill
 ├── scripts/
 │   ├── sync_skills.py
 │   └── validate_skills.py
@@ -183,13 +194,19 @@ python3 scripts/sync_skills.py --apply
 1. Create or select a plugin under `plugins/<plugin-name>/`.
 2. Create `plugins/<plugin-name>/skills/<lowercase-hyphen-name>/SKILL.md`
    with only `name` and `description` in frontmatter.
-3. Add a compatibility symlink under `skills/` if standalone installation is
-   still supported.
+3. Add `agents/openai.yaml` beside `SKILL.md` for Codex UI metadata.
 4. Put deterministic tools in `scripts/`, on-demand guidance in `references/`,
    and output resources in `assets/`.
-5. Add `agents/openai.yaml` for Codex UI metadata.
-6. Add or update the entry in `skills.json` and both marketplace catalogs.
-7. Run `python3 scripts/validate_skills.py`.
-8. Commit the canonical plugin and update each installed marketplace.
+5. Add a compatibility symlink under `skills/` if standalone installation is
+   still supported.
+6. Cover any bundled script with a `test_*.py` suite under the plugin's
+   `tests/`. `validate_skills.py` discovers and runs these.
+7. Bump the plugin version in both `.claude-plugin/plugin.json` and
+   `.codex-plugin/plugin.json`, then mirror it into `skills.json`
+   (`plugin_version`) and `.claude-plugin/marketplace.json`. Register the skill
+   itself in `skills.json` and, for a new plugin, in both marketplace catalogs.
+8. Update the plugin's `README.md` and this file's skill counts.
+9. Run `python3 scripts/validate_skills.py` and `python3 scripts/sync_skills.py`.
+10. Commit the canonical plugin and update each installed marketplace.
 
 Do not maintain separate Codex and Claude copies in this repository.
