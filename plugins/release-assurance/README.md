@@ -1,4 +1,4 @@
-# Release Assurance
+# Release Assurance plugin
 
 Release Assurance provides five workflows for planning, checking, publishing,
 verifying, and safely retiring software releases.
@@ -16,6 +16,18 @@ partial releases without rewriting immutable history.
 - `publish-release`: publish an authorised candidate and verify destinations.
 - `archive-superseded-project`: retire a replaced project without losing evidence.
 
+## Use the plugin
+
+Invoke the router as `$release-assurance` in Codex or
+`/release-assurance:release-assurance` in Claude Code. It selects the focused
+workflow that matches the request.
+
+Invoke a focused workflow directly with its own name, for example
+`$plan-release` in Codex or `/release-assurance:plan-release` in Claude Code.
+
+Publication and archival require scoped authority. The plugin does not publish
+or retire anything until the user grants it.
+
 ## Preflight helper
 
 Run the offline candidate check from the plugin root:
@@ -26,3 +38,12 @@ python3 scripts/release_preflight.py /path/to/release-root --version 1.2.3
 
 The helper reports Git state, local tag collisions, and supported version
 metadata. It deliberately performs no network or publication actions.
+
+## Verify the plugin
+
+Run these commands from the repository root:
+
+```bash
+python3 scripts/validate_skills.py
+python3 plugins/release-assurance/tests/test_release_assurance.py -v
+```
